@@ -15,6 +15,8 @@ import { MantineLogo } from "@mantine/ds";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons";
 import Link from "next/link";
+import ColorModeButton from "../ColorModeButton";
+import ConnectLoginButton from "../ConnectLoginButton";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -92,82 +94,84 @@ export default function HeaderNavbar() {
   const { classes, theme } = useStyles();
 
   return (
-    <Box pb={120}>
-      <Header height={60} px="md">
-        <Group position="apart" sx={{ height: "100%" }}>
-          <Group
-            sx={{ height: "100%" }}
-            spacing={5}
-            className={classes.hiddenMobile}
-          >
-            <Button component="a" variant="light" color="violet" radius="md">
-              Home
-            </Button>
-            <Button component="a" variant="light" color="violet" radius="md">
-              Home
-            </Button>
-            <Button component="a" variant="light" color="violet" radius="md">
-              Home
-            </Button>
+    <>
+      <Box pb={0.5}>
+        <Header height={75} px="md">
+          <Group position="apart" sx={{ height: "100%" }}>
+            <Group
+              sx={{ height: "100%" }}
+              spacing={5}
+              className={classes.hiddenMobile}
+            >
+              <Button component="a" variant="light" color="violet" radius="md">
+                Home
+              </Button>
+              <Button component="a" variant="light" color="violet" radius="md">
+                Home
+              </Button>
+              <Button component="a" variant="light" color="violet" radius="md">
+                Home
+              </Button>
+            </Group>
+            <MantineLogo size={30} color="violet" />
+            <Group className={classes.hiddenMobile}>
+              <ColorModeButton />
+              <ConnectLoginButton />
+            </Group>
+
+            <Burger
+              opened={drawerOpened}
+              onClick={toggleDrawer}
+              className={classes.hiddenDesktop}
+            />
           </Group>
-          <MantineLogo size={30} color="violet" />
-          <Group className={classes.hiddenMobile}>
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
-          </Group>
+        </Header>
 
-          <Burger
-            opened={drawerOpened}
-            onClick={toggleDrawer}
-            className={classes.hiddenDesktop}
-          />
-        </Group>
-      </Header>
+        <Drawer
+          opened={drawerOpened}
+          onClose={closeDrawer}
+          size="100%"
+          padding="md"
+          title="Navigation"
+          className={classes.hiddenDesktop}
+          zIndex={1000000}
+        >
+          <ScrollArea sx={{ height: "calc(100vh - 60px)" }} mx="-md">
+            <Divider
+              my="sm"
+              color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
+            />
 
-      <Drawer
-        opened={drawerOpened}
-        onClose={closeDrawer}
-        size="100%"
-        padding="md"
-        title="Navigation"
-        className={classes.hiddenDesktop}
-        zIndex={1000000}
-      >
-        <ScrollArea sx={{ height: "calc(100vh - 60px)" }} mx="-md">
-          <Divider
-            my="sm"
-            color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
-          />
+            <a href="#" className={classes.link}>
+              Home
+            </a>
+            <UnstyledButton className={classes.link} onClick={toggleLinks}>
+              <Center inline>
+                <Box component="span" mr={5}>
+                  Features
+                </Box>
+                <IconChevronDown size={16} color={theme.fn.primaryColor()} />
+              </Center>
+            </UnstyledButton>
+            <a href="#" className={classes.link}>
+              Learn
+            </a>
+            <a href="#" className={classes.link}>
+              Academy
+            </a>
 
-          <a href="#" className={classes.link}>
-            Home
-          </a>
-          <UnstyledButton className={classes.link} onClick={toggleLinks}>
-            <Center inline>
-              <Box component="span" mr={5}>
-                Features
-              </Box>
-              <IconChevronDown size={16} color={theme.fn.primaryColor()} />
-            </Center>
-          </UnstyledButton>
-          <a href="#" className={classes.link}>
-            Learn
-          </a>
-          <a href="#" className={classes.link}>
-            Academy
-          </a>
+            <Divider
+              my="sm"
+              color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
+            />
 
-          <Divider
-            my="sm"
-            color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
-          />
-
-          <Group position="center" grow pb="xl" px="md">
-            <Button variant="default">Log in</Button>
-            <Button>Sign up</Button>
-          </Group>
-        </ScrollArea>
-      </Drawer>
-    </Box>
+            <Group position="center" grow pb="xl" px="md">
+              <ColorModeButton />
+              {/* <ConnectLoginButton /> */}
+            </Group>
+          </ScrollArea>
+        </Drawer>
+      </Box>
+    </>
   );
 }

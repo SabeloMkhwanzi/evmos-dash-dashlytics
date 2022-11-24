@@ -5,10 +5,11 @@ import {
   IconBrandInstagram,
 } from "@tabler/icons";
 import { MantineLogo } from "@mantine/ds";
+import { Center, Flex } from "@chakra-ui/react";
 
 const useStyles = createStyles((theme) => ({
   footer: {
-    marginTop: 120,
+    marginTop: 0.5,
     borderTop: `1px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.colors.gray[2]
     }`,
@@ -55,10 +56,8 @@ export default function Footer({ links }: FooterCenteredProps) {
   return (
     <div className={classes.footer}>
       <div className={classes.inner}>
-        <MantineLogo size={28} />
-
         <Group className={classes.links}>{items}</Group>
-
+        <MantineLogo size={28} />
         <Group spacing="xs" position="right" noWrap>
           <ActionIcon size="lg" variant="default" radius="xl">
             <IconBrandTwitter size={18} stroke={1.5} />

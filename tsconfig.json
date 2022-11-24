@@ -19,7 +19,11 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/HeaderNavbar/index.tsx"
+    "components/HeaderNavbar/index.tsx",
+    "components/DexSwapList/Cronus/index.js",
+    "components/DexSwapList/Cronus/Token/TokenTable/TableFooter/index.js",
+    "components/DexSwapList/Diffuison/Overview/index.js",
+    "components/DexSwapList/Diffuison/Overview/index.js"
   ],
   "exclude": ["node_modules"]
 }
