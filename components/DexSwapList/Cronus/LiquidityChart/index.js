@@ -1,6 +1,27 @@
 import React from "react";
-import { Chart as ChartJS } from "chart.js/auto";
-import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend,
+} from "chart.js/auto";
+import { Bar } from "react-chartjs-2";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Filler,
+  Legend
+);
 
 const LiquidityChart = ({ data }) => {
   const options = {
@@ -64,7 +85,7 @@ const LiquidityChart = ({ data }) => {
     ],
   };
 
-  return <Line options={options} data={liquidGraph} />;
+  return <Bar options={options} data={liquidGraph} />;
 };
 
 export default LiquidityChart;

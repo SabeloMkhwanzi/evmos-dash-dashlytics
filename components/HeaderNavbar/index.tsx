@@ -103,17 +103,37 @@ export default function HeaderNavbar() {
               spacing={5}
               className={classes.hiddenMobile}
             >
-              <Button component="a" variant="light" color="violet" radius="md">
-                Home
+              <Button
+                href="diffusion"
+                component="a"
+                variant="light"
+                color="violet"
+                radius="md"
+              >
+                Diffusion
               </Button>
-              <Button component="a" variant="light" color="violet" radius="md">
-                Home
+              <Button
+                href="cronus"
+                component="a"
+                variant="light"
+                color="violet"
+                radius="md"
+              >
+                Cronus Finance
               </Button>
-              <Button component="a" variant="light" color="violet" radius="md">
-                Home
+              <Button
+                href="evmoswap"
+                component="a"
+                variant="light"
+                color="violet"
+                radius="md"
+              >
+                EvmoSwap
               </Button>
             </Group>
-            <MantineLogo size={30} color="violet" />
+            <Link href="/">
+              <MantineLogo size={30} color="violet" />
+            </Link>
             <Group className={classes.hiddenMobile}>
               <ColorModeButton />
               <ConnectLoginButton />

@@ -60,18 +60,6 @@ function Analytics() {
   return (
     <Box>
       <Box>
-        <Text
-          mt="1%"
-          mx="10%"
-          fontSize="2xl"
-          fontWeight="semibold"
-          color={HeadingTextColorMode}
-        >
-          Analytics
-        </Text>
-        <Text mx="10%" fontSize="xl" fontWeight="normal" color="gray.400">
-          Overview
-        </Text>
         <Overview data={items} />
         <Box
           mx="auto"
