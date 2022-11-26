@@ -29,6 +29,7 @@
     "eslint-config-next": "13.0.4",
     "ethers": "^5.7.2",
     "framer-motion": "^7.6.7",
+    "moment": "^2.29.4",
     "next": "13.0.4",
     "pill-pity": "^0.2.3",
     "react": "18.2.0",

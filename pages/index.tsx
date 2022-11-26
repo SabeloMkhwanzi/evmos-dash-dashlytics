@@ -1,6 +1,11 @@
 import Head from "next/head";
 import { AppShell } from "@mantine/core";
-import { Cronus, Footer, HeaderNavbar, SideNavbarHome } from "../components";
+import {
+  EmvosOverview,
+  Footer,
+  HeaderNavbar,
+  SideNavbarHome,
+} from "../components";
 
 export default function Home() {
   return (
@@ -24,21 +29,10 @@ export default function Home() {
           },
         })}
       >
-        <Cronus />
+        <EmvosOverview />
+
+        {/* <Cronus /> */}
       </AppShell>
     </>
   );
-}
-
-{
-  /*   const patterFill = useColorModeValue("brand.200", "brand.300");
-
-  <PillPity
-        pattern="diagonal-lines"
-        patternFill={patterFill}
-        bgColor="choc.secondary"
-        patternOpacity={0.1}
-        padding="0, 2rem"
-        minH="100vh"
-      > */
 }

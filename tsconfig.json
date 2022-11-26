@@ -23,7 +23,9 @@
     "components/DexSwapList/Cronus/index.js",
     "components/DexSwapList/Cronus/Token/TokenTable/TableFooter/index.js",
     "components/DexSwapList/Diffuison/Overview/index.js",
-    "components/DexSwapList/Diffuison/Overview/index.js"
+    "components/DexSwapList/Diffuison/Overview/index.js",
+    "components/index.js",
+    "components/EmvosOverview/index.js"
   ],
   "exclude": ["node_modules"]
 }
