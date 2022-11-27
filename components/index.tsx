@@ -17,3 +17,5 @@ export { default as MarketcapChart } from "./EmvosOverview/MarketcapChart";
 export { default as PriceChart } from "./EmvosOverview/PriceChart";
 export { default as TokenPair } from "./EmvosOverview/TokenPair";
 export { default as TokenPairTable } from "./EmvosOverview/TokenPair/TokenPairTable";
+export { default as EvmosStats } from "./EmvosOverview/EvmosStats";
+export { default as EvmosStatsOverview } from "./EmvosOverview/EvmosStats/EvmosStatsOverview";

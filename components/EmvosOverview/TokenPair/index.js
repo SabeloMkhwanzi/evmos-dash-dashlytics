@@ -11,7 +11,7 @@ export default function TokenPair() {
     );
     return res.json();
   });
-  console.log(data);
+  //console.log(data);
 
   if (isFetching) {
     return "Loading...";

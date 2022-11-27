@@ -1,9 +1,16 @@
 import React from "react";
-import { createStyles, Card, Container } from "@mantine/core";
-import { Area, AreaChart, XAxis, YAxis, Tooltip } from "recharts";
+import { createStyles, Card, Container, Paper } from "@mantine/core";
+import {
+  Area,
+  AreaChart,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 const useStyles = createStyles((theme) => ({
-  card: {
+  Paper: {
     transition: "transform 150ms ease, box-shadow 150ms ease",
     width: 590,
     "&:hover": {
@@ -24,30 +31,38 @@ const PriceChart = ({ prices }) => {
   return (
     <>
       <Container py="xl">
-        <Card
+        <Paper
+          withBorder
           p="md"
           radius="md"
           component="a"
           href="#"
-          className={classes.card}
+          className={classes.Paper}
         >
-          <AreaChart
-            margin={{
-              top: 10,
-              right: 0,
-              left: 30,
-              bottom: 0,
-            }}
-            width={500}
-            height={300}
-            data={prices}
-          >
-            <YAxis />
-            <Tooltip />
-            <XAxis dataKey="x" />
-            <Area type="monotone" dataKey="Price" stroke="red" fill="#8884d8" />
-          </AreaChart>
-        </Card>
+          <ResponsiveContainer width="100%" height={280}>
+            <AreaChart
+              margin={{
+                top: 10,
+                right: 0,
+                left: 30,
+                bottom: 0,
+              }}
+              width={500}
+              height={300}
+              data={prices}
+            >
+              <YAxis />
+              <Tooltip />
+              <XAxis dataKey="x" />
+              <Area
+                type="monotone"
+                dataKey="Price"
+                stroke="red"
+                fill="#8884d8"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </Paper>
       </Container>
     </>
   );

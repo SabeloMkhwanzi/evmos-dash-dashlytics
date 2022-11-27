@@ -31,6 +31,7 @@
     "framer-motion": "^7.6.7",
     "moment": "^2.29.4",
     "next": "13.0.4",
+    "numbro": "^2.3.6",
     "pill-pity": "^0.2.3",
     "react": "18.2.0",
     "react-chartjs-2": "^5.0.1",

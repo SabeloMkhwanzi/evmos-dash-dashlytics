@@ -10,6 +10,8 @@ import {
   Container,
   Card,
   SimpleGrid,
+  Paper,
+  Text,
 } from "@mantine/core";
 import { keys } from "@mantine/utils";
 import {
@@ -18,7 +20,7 @@ import {
   IconChevronUp,
   IconSearch,
 } from "@tabler/icons";
-import { HStack, Text } from "@chakra-ui/react";
+import { HStack } from "@chakra-ui/react";
 
 const useStyles = createStyles((theme) => ({
   th: {
@@ -47,10 +49,10 @@ const useStyles = createStyles((theme) => ({
   card: {
     transition: "transform 150ms ease, box-shadow 150ms ease",
     width: 1220,
-    // "&:hover": {
-    //   transform: "scale(1.01)",
-    //   boxShadow: theme.shadows.md,
-    // },
+    "&:hover": {
+      transform: "scale(1.01)",
+      boxShadow: theme.shadows.md,
+    },
   },
 }));
 
@@ -129,13 +131,7 @@ export default function TokenPairTable({ data }) {
     );
   };
 
-  const formatCash = (n) => {
-    if (n < 1e3) return n;
-    if (n >= 1e3 && n < 1e6) return +(n / 1e3).toFixed(1);
-    if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(1);
-    if (n >= 1e9 && n < 1e12) return +(n / 1e9).toFixed(1);
-    if (n >= 1e12) return +(n / 1e12).toFixed(1);
-  };
+  var numbro = require("numbro");
 
   const rows = sortedData?.pairs.map((row) => (
     <tr key={row.name}>
@@ -143,7 +139,7 @@ export default function TokenPairTable({ data }) {
         <SimpleGrid cols={3} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
           <Text fontWeight="semibold">{row.baseToken.symbol}</Text>
           <Text fontWeight="semibold">{row.quoteToken.symbol}</Text>
-          <Text fontSize="x-small" color="gray" size={1} px="md">
+          <Text fontSize="x-small" c="dimmed" size={1} px="md">
             {row.quoteToken.name}
           </Text>
         </SimpleGrid>
@@ -151,26 +147,42 @@ export default function TokenPairTable({ data }) {
       <td>
         <HStack>
           <Text textAlign="centre" fontWeight="semibold">
-            ${formatCash(row.priceUsd)}
+            {numbro(row.priceUsd).formatCurrency({
+              average: true,
+              mantissa: 2,
+              optionalMantissa: true,
+            })}
           </Text>
-          <Text fontSize="small" color="gray">
+          <Text fontSize="small" c="dimmed">
             {row.dexId}
           </Text>
         </HStack>
       </td>
       <td>
         <Text textAlign="centre" fontWeight="semibold">
-          ${formatCash(row.volume.h24)}
+          {numbro(row.volume.h24).formatCurrency({
+            average: true,
+            mantissa: 2,
+            optionalMantissa: true,
+          })}
         </Text>
       </td>
       <td>
         <Text textAlign="centre" fontWeight="semibold">
-          ${formatCash(row.liquidity.usd)}
+          {numbro(row.liquidity.usd).formatCurrency({
+            average: true,
+            mantissa: 2,
+            optionalMantissa: true,
+          })}
         </Text>
       </td>
       <td>
         <Text textAlign="centre" fontWeight="semibold">
-          ${formatCash(row.fdv)}
+          {numbro(row.fdv).formatCurrency({
+            average: true,
+            mantissa: 2,
+            optionalMantissa: true,
+          })}
         </Text>
       </td>
     </tr>
@@ -178,7 +190,7 @@ export default function TokenPairTable({ data }) {
 
   return (
     <Center>
-      <Card width="600" className={classes.card}>
+      <Paper width="600" withBorder className={classes.card}>
         <ScrollArea>
           <TextInput
             placeholder="Search by any field"
@@ -199,7 +211,7 @@ export default function TokenPairTable({ data }) {
                   reversed={reverseSortDirection}
                   onSort={() => setSorting("name")}
                 >
-                  <Text fontWeight="bold" textTransform="uppercase">
+                  <Text c="dimmed" fw={700} tt="uppercase">
                     TOKENS
                   </Text>
                 </Th>
@@ -208,7 +220,7 @@ export default function TokenPairTable({ data }) {
                   reversed={reverseSortDirection}
                   onSort={() => setSorting("name")}
                 >
-                  <Text fontWeight="bold" textTransform="uppercase">
+                  <Text c="dimmed" fw={700} tt="uppercase">
                     Price (USD)
                   </Text>
                 </Th>
@@ -217,7 +229,7 @@ export default function TokenPairTable({ data }) {
                   reversed={reverseSortDirection}
                   onSort={() => setSorting("name")}
                 >
-                  <Text fontWeight="bold" textTransform="uppercase">
+                  <Text c="dimmed" fw={700} tt="uppercase">
                     volume h24
                   </Text>
                 </Th>
@@ -226,7 +238,7 @@ export default function TokenPairTable({ data }) {
                   reversed={reverseSortDirection}
                   onSort={() => setSorting("email")}
                 >
-                  <Text fontWeight="bold" textTransform="uppercase">
+                  <Text c="dimmed" fw={700} tt="uppercase">
                     Liquidity
                   </Text>
                 </Th>
@@ -235,7 +247,7 @@ export default function TokenPairTable({ data }) {
                   reversed={reverseSortDirection}
                   onSort={() => setSorting("company")}
                 >
-                  <Text fontWeight="bold" textTransform="uppercase">
+                  <Text c="dimmed" fw={700} tt="uppercase">
                     FDV
                   </Text>
                 </Th>
@@ -256,7 +268,7 @@ export default function TokenPairTable({ data }) {
             </tbody>
           </Table>
         </ScrollArea>
-      </Card>
+      </Paper>
     </Center>
   );
 }
