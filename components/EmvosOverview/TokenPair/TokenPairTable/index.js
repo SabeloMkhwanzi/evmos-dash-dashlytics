@@ -19,6 +19,7 @@ import {
   IconSearch,
 } from "@tabler/icons";
 import { HStack } from "@chakra-ui/react";
+import { usePagination } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
   th: {

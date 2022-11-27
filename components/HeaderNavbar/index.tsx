@@ -10,6 +10,7 @@ import {
   Burger,
   Drawer,
   ScrollArea,
+  Avatar,
 } from "@mantine/core";
 import { MantineLogo } from "@mantine/ds";
 import { useDisclosure } from "@mantine/hooks";
@@ -106,28 +107,55 @@ export default function HeaderNavbar() {
               <Button
                 href="diffusion"
                 component="a"
-                variant="light"
+                variant="subtle"
                 color="violet"
                 radius="md"
+                h={50}
               >
+                <Avatar
+                  variant="outline"
+                  radius="lg"
+                  mx={3}
+                  color="grape"
+                  alt="diffusion"
+                  src="https://assets-global.website-files.com/626a943b5e0d745c0313657b/626ad0718bf48d5b671e67f2_sZ0ATBDy_400x400.jpeg"
+                />
                 Diffusion
               </Button>
               <Button
                 href="cronus"
                 component="a"
-                variant="light"
+                variant="subtle"
                 color="violet"
                 radius="md"
+                h={50}
               >
+                <Avatar
+                  variant="outline"
+                  radius="lg"
+                  mx={3}
+                  color="grape"
+                  alt="diffusion"
+                  src="https://assets-global.website-files.com/626a943b5e0d745c0313657b/626a96b1e0ea623fad409fb8_Cronus%20Finance.jpeg"
+                />
                 Cronus Finance
               </Button>
               <Button
                 href="evmoswap"
                 component="a"
-                variant="light"
+                variant="subtle"
                 color="violet"
                 radius="md"
+                h={50}
               >
+                <Avatar
+                  variant="outline"
+                  radius="lg"
+                  mx={3}
+                  color="grape"
+                  alt="diffusion"
+                  src="https://assets-global.website-files.com/626a943b5e0d745c0313657b/63121af2ab5c98098a5c1ff0_evmosswap_400x400.jpeg"
+                />
                 EvmoSwap
               </Button>
             </Group>
