@@ -227,22 +227,3 @@ export default function EvmosStatsOverview({ data }) {
     </>
   );
 }
-
-// logo, name, ticker, MarketCap, "24HourTradingVol", price, IconPercentage;
-
-// Contractinfo, image.thumb, name, symbol;
-// market_data.current_price.usd, market_cap_change_percentage_24h;
-
-// market_data.market_cap.usd;
-
-// market_data.total_volume.usd;
-
-//market_data.circulating_supply
-
-// platforms.evmos;
-
-// blockchain_site;
-
-// last_updated;
-
-// homepage;

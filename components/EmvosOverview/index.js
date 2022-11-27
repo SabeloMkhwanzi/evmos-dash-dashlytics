@@ -3,11 +3,11 @@ import { useQuery } from "react-query";
 import moment from "moment";
 import MarketcapChart from "./MarketcapChart";
 import PriceChart from "./PriceChart";
-import { SimpleGrid } from "@mantine/core";
+import { SimpleGrid, Loader, Center, Notification } from "@mantine/core";
 import { Flex } from "@chakra-ui/react";
 import TokenPair from "./TokenPair";
 import EvmosStats from "./EvmosStats";
-import { IconPercentage } from "@tabler/icons";
+import { IconX } from "@tabler/icons";
 
 export default function EmvosOverview() {
   // used React-Query to fetch Covalent API
@@ -27,14 +27,6 @@ export default function EmvosOverview() {
       }),
     }))
   );
-
-  if (isFetching) {
-    return "Loading...";
-  } //<Progress size="xs" isIndeterminate />;
-
-  if (error) {
-    return "Error" + error.message;
-  }
 
   var numbro = require("numbro");
 
@@ -60,12 +52,43 @@ export default function EmvosOverview() {
     Price: item[1],
   }));
 
+  if (isFetching)
+    return (
+      <Center
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "fixed",
+          left: "0px",
+          top: "0px",
+        }}
+      >
+        <Loader size="xl" color="grape" variant="bars" />
+      </Center>
+    );
+
+  if (error)
+    return (
+      <Center
+        style={{
+          width: "100%",
+          height: "20%",
+
+          left: "0px",
+          top: "0px",
+        }}
+      >
+        <Notification icon={<IconX size={18} />} color="red">
+          Error! Failed to Fetch API
+        </Notification>
+      </Center>
+    );
+
   return (
     <>
       <Flex justifyContent="space-evenly">
         <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
           <PriceChart prices={prices} />
-
           <MarketcapChart marketCap={marketCap} />
         </SimpleGrid>
       </Flex>

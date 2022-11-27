@@ -1,6 +1,9 @@
 import React from "react";
 import { useQuery } from "react-query";
 import EvmosStatsOverview from "./EvmosStatsOverview";
+import { Loader, Center, Notification } from "@mantine/core";
+
+import { IconX } from "@tabler/icons";
 
 export default function EvmosStats() {
   // used React-Query to fetch Covalent API
@@ -13,38 +16,40 @@ export default function EvmosStats() {
 
   //console.log(data);
 
-  if (isFetching) {
-    return "Loading...";
-  } //<Progress size="xs" isIndeterminate />;
+  if (isFetching)
+    return (
+      <Center
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "fixed",
+          left: "0px",
+          top: "0px",
+        }}
+      >
+        <Loader size="md" color="grape" variant="bars" />
+      </Center>
+    );
 
-  if (error) {
-    return "Error" + error.message;
-  }
+  if (error)
+    return (
+      <Center
+        style={{
+          width: "100%",
+          height: "20%",
 
+          left: "0px",
+          top: "0px",
+        }}
+      >
+        <Notification icon={<IconX size={18} />} color="red">
+          Error! Failed to Fetch API
+        </Notification>
+      </Center>
+    );
   return (
     <>
       <EvmosStatsOverview data={data} />
     </>
   );
-}
-
-//market_data.current_price.usd;
-
-// Contractinfo, image.thumb, name, symbol;
-// market_data.current_price.usd, market_cap_change_percentage_24h;
-
-// market_data.market_cap.usd;
-
-// market_data.total_volume.usd;
-
-// platforms.evmos;
-
-// blockchain_site;
-
-// last_updated;
-
-// homepage;
-
-{
-  /* <EvmosStatsOverview data={data} /> */
 }

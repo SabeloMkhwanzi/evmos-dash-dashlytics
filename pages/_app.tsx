@@ -9,41 +9,6 @@ import { useState } from "react";
 // import react-query
 import { QueryClient, QueryClientProvider } from "react-query";
 
-// import Rainbow Wallet setting here
-import "@rainbow-me/rainbowkit/styles.css";
-import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit";
-import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
-import { alchemyProvider } from "wagmi/providers/alchemy";
-import { publicProvider } from "wagmi/providers/public";
-
-const { chains, provider, webSocketProvider } = configureChains(
-  [
-    chain.mainnet,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true" ? [] : []),
-  ],
-  [
-    alchemyProvider({
-      // This is Alchemy's default API key.
-
-      apiKey: "oMM0vOj56LhAqY5t4YGaI8CdktKDNFsD",
-      //apiKey: "_gg7wSSi0KMBsdKnGVfHDueq6xMB9EkC",
-    }),
-    publicProvider(),
-  ]
-);
-
-const { connectors } = getDefaultWallets({
-  appName: "EVMOS-LYTICS",
-  chains,
-});
-
-const wagmiClient = createClient({
-  autoConnect: true,
-  connectors,
-  provider,
-  webSocketProvider,
-});
-
 // Create a client for react-query
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -80,14 +45,11 @@ export default function App(props: AppProps) {
               lg: 1200,
               xl: 1400,
             },
+            loader: "bars",
           }}
         >
           <QueryClientProvider client={queryClient}>
-            <WagmiConfig client={wagmiClient}>
-              <RainbowKitProvider chains={chains}>
-                <Component {...pageProps} />
-              </RainbowKitProvider>
-            </WagmiConfig>
+            <Component {...pageProps} />
           </QueryClientProvider>
         </MantineProvider>
       </ColorSchemeProvider>

@@ -16,7 +16,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons";
 import Link from "next/link";
 import ColorModeButton from "../ColorModeButton";
-import ConnectLoginButton from "../ConnectLoginButton";
+//import ConnectLoginButton from "../ConnectLoginButton";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -136,7 +136,7 @@ export default function HeaderNavbar() {
             </Link>
             <Group className={classes.hiddenMobile}>
               <ColorModeButton />
-              <ConnectLoginButton />
+              {/* <ConnectLoginButton /> */}
             </Group>
 
             <Burger
