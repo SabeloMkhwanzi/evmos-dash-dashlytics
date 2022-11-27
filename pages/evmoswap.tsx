@@ -2,6 +2,7 @@ import Head from "next/head";
 import { AppShell } from "@mantine/core";
 import { Footer, HeaderNavbar } from "../components";
 import SideNavbarEvmoswap from "../components/SideNavbarEvmos";
+import EvmoswapOverview from "../components/DexSwapList/Evmoswap";
 
 export default function Evmoswap() {
   return (
@@ -25,7 +26,7 @@ export default function Evmoswap() {
           },
         })}
       >
-        {}
+        <EvmoswapOverview />
       </AppShell>
     </>
   );

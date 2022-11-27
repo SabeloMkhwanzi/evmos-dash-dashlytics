@@ -59,10 +59,10 @@ export default function EvmosStatsOverview({ data }) {
 
   var numbro = require("numbro");
 
-  function Copy() {
+  function Copy({ data }) {
     return (
       <CopyButton
-        value="0xd4949664cd82660aae99bedc034a0dea8a0bd517"
+        value="0x3f75ceabcdfed1aca03257dc6bdc0408e2b4b026"
         timeout={2000}
       >
         {({ copied, copy }) => (
@@ -107,11 +107,11 @@ export default function EvmosStatsOverview({ data }) {
               <Group spacing="xs">
                 <Avatar
                   component="a"
-                  radius="md"
+                  radius="xl"
                   src={data.image.small}
                   target="_blank"
-                  href="http://evmos.org/"
-                  alt="evmos-logo"
+                  href="https://diffusion.fi"
+                  alt="diffusion-logo"
                 />
                 <Text fon fw={700}>
                   {data.name}
@@ -136,14 +136,14 @@ export default function EvmosStatsOverview({ data }) {
                       color={
                         numbro(
                           data.market_data.market_cap_change_percentage_24h
-                        ).format({ thousandSeparated: true, mantissa: 2 }) > 0
+                        ).format({ thousandSeparated: true, mantissa: 1 }) > 0
                           ? "teal"
                           : "red"
                       }
                     >
                       {numbro(
                         data.market_data.market_cap_change_percentage_24h
-                      ).format({ thousandSeparated: true, mantissa: 2 })}
+                      ).format({ thousandSeparated: true, mantissa: 1 })}
                       %
                     </Text>
                   </Text>
@@ -155,7 +155,7 @@ export default function EvmosStatsOverview({ data }) {
                       color:
                         numbro(
                           data.market_data.market_cap_change_percentage_24h
-                        ).format({ thousandSeparated: true, mantissa: 2 }) > 0
+                        ).format({ thousandSeparated: true, mantissa: 1 }) > 0
                           ? theme.colors.teal[6]
                           : theme.colors.red[6],
                     })}
@@ -220,7 +220,7 @@ export default function EvmosStatsOverview({ data }) {
               </Button>
               <Space h="md" />
               <Group spacing="xs">
-                <Text>{getEllipsisTxt(data.platforms.evmos)}</Text>
+                <Text>{getEllipsisTxt(data.contract_address)}</Text>
                 <Copy />
               </Group>
             </Box>

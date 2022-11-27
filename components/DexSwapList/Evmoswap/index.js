@@ -4,22 +4,24 @@ import { Flex } from "@chakra-ui/react";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
 import moment from "moment";
-import CronusVolumeChart from "./CronusVolumeChart";
-import CronusLiquidityChart from "./CronusLiquidityChart";
-import CronusStats from "./CronusStats";
+import EvmoswapLiquidityChart from "./EvmoswapLiquidityChart";
+import EvmoswapVolumeChart from "./EvmoswapVolumeChart";
+import EvmoswapStats from "./EvmoswapStats";
 
 //API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
-export default function CronusOverview() {
+export default function EvmoswapOverview() {
   // used React-Query to fetch Covalent API
-  const { data, error, isFetching } = useQuery(["cronusEco"], async () => {
+  const { data, error, isFetching } = useQuery(["evmoswapEco"], async () => {
     const res = await fetch(
-      `https://api.covalenthq.com/v1/9001/xy=k/cronus/ecosystem/?&key=${APIKey}`
+      `https://api.covalenthq.com/v1/9001/xy=k/evmoswap/ecosystem/?&key=${APIKey}`
     );
     return res.json();
   });
   //console.log(data?.data?.items);
+
+  var numbro = require("numbro");
 
   const formatCash = (n) => {
     if (n < 1e3) return n;
@@ -32,14 +34,14 @@ export default function CronusOverview() {
   var numbro = require("numbro");
 
   // Chart data for Evmos market_caps
-  const CronusLiquidity = data?.data?.items[0].liquidity_chart_30d.map(
+  const EvmoswapLiquidity = data?.data?.items[0].liquidity_chart_30d.map(
     (item) => ({
       X: moment(item.dt).format("MMM Do"),
       Y: item.liquidity_quote,
     })
   );
 
-  const CronusVolume = data?.data?.items[0].volume_chart_30d.map((item) => ({
+  const EvmoswapVolume = data?.data?.items[0].volume_chart_30d.map((item) => ({
     X: moment(item.dt).format("MMM Do"),
     Y: item.volume_quote,
   }));
@@ -79,15 +81,15 @@ export default function CronusOverview() {
   return (
     <>
       <Text c="dimmed" fz="xl" tt="uppercase">
-        Cronus finance Analytics
+        Evmoswap Analytics
       </Text>
       <Flex justifyContent="space-evenly">
         <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-          <CronusVolumeChart CronusVolume={CronusVolume} />
-          <CronusLiquidityChart CronusLiquidity={CronusLiquidity} />
+          <EvmoswapVolumeChart EvmoswapVolume={EvmoswapVolume} />
+          <EvmoswapLiquidityChart EvmoswapLiquidity={EvmoswapLiquidity} />
         </SimpleGrid>
       </Flex>
-      <CronusStats />
+      <EvmoswapStats />
     </>
   );
 }

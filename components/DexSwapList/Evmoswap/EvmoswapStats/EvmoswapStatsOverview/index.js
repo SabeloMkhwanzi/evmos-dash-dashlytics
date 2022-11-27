@@ -46,7 +46,7 @@ export default function EvmosStatsOverview({ data }) {
   const { classes } = useStyles();
 
   const DiffIcon =
-    data.market_data.market_cap_change_percentage_24h > 0
+    data.market_data.price_change_24h_in_currency.usd > 0
       ? IconArrowUpRight
       : IconArrowDownRight;
 
@@ -59,10 +59,10 @@ export default function EvmosStatsOverview({ data }) {
 
   var numbro = require("numbro");
 
-  function Copy() {
+  function Copy({ data }) {
     return (
       <CopyButton
-        value="0xd4949664cd82660aae99bedc034a0dea8a0bd517"
+        value="0x181c262b973b22c307c646a67f64b76410d19b6b"
         timeout={2000}
       >
         {({ copied, copy }) => (
@@ -107,11 +107,11 @@ export default function EvmosStatsOverview({ data }) {
               <Group spacing="xs">
                 <Avatar
                   component="a"
-                  radius="md"
+                  radius="xl"
                   src={data.image.small}
                   target="_blank"
-                  href="http://evmos.org/"
-                  alt="evmos-logo"
+                  href="https://app.evmoswap.org/swap"
+                  alt="evmoswap-logo"
                 />
                 <Text fon fw={700}>
                   {data.name}
@@ -135,16 +135,15 @@ export default function EvmosStatsOverview({ data }) {
                     <Text
                       color={
                         numbro(
-                          data.market_data.market_cap_change_percentage_24h
-                        ).format({ thousandSeparated: true, mantissa: 2 }) > 0
+                          data.market_data.price_change_24h_in_currency.usd
+                        ).format({ output: "percent", mantissa: 4 }) > 0
                           ? "teal"
                           : "red"
                       }
                     >
                       {numbro(
-                        data.market_data.market_cap_change_percentage_24h
-                      ).format({ thousandSeparated: true, mantissa: 2 })}
-                      %
+                        data.market_data.price_change_24h_in_currency.usd
+                      ).format({ output: "percent", mantissa: 4 })}
                     </Text>
                   </Text>
 
@@ -154,8 +153,8 @@ export default function EvmosStatsOverview({ data }) {
                     sx={(theme) => ({
                       color:
                         numbro(
-                          data.market_data.market_cap_change_percentage_24h
-                        ).format({ thousandSeparated: true, mantissa: 2 }) > 0
+                          data.market_data.price_change_24h_in_currency.usd
+                        ).format({ output: "percent", mantissa: 4 }) > 0
                           ? theme.colors.teal[6]
                           : theme.colors.red[6],
                     })}
@@ -210,7 +209,7 @@ export default function EvmosStatsOverview({ data }) {
               <Button
                 radius="lg"
                 component="a"
-                href="http://evmos.org/"
+                href="https://app.evmoswap.org/swap"
                 variant="subtle"
                 color="violet"
                 compact
@@ -220,7 +219,7 @@ export default function EvmosStatsOverview({ data }) {
               </Button>
               <Space h="md" />
               <Group spacing="xs">
-                <Text>{getEllipsisTxt(data.platforms.evmos)}</Text>
+                <Text>{getEllipsisTxt(data.contract_address)}</Text>
                 <Copy />
               </Group>
             </Box>
