@@ -1,13 +1,17 @@
 import React from "react";
 import { useQuery } from "react-query";
 import TokenPairTable from "./TokenPairTable";
-import { Loader, Center, Notification } from "@mantine/core";
+import { Loader, Center, Notification, Text } from "@mantine/core";
 import { IconX } from "@tabler/icons";
 
+const EvmosTokensAddress = "0xd4949664cd82660aae99bedc034a0dea8a0bd517";
+
 export default function TokenPair() {
-  const { data, error, isFetching } = useQuery(["evmostokenpair"], async () => {
+  // used React-Query to fetch Covalent API
+  const { data, error, isFetching } = useQuery(["evmosTokenPair"], async () => {
     const res = await fetch(
-      "https://api.dexscreener.com/latest/dex/tokens/0xd4949664cd82660aae99bedc034a0dea8a0bd517"
+      // Dexscreener API for Token Pair
+      `https://api.dexscreener.com/latest/dex/tokens/${EvmosTokensAddress}`
     );
     return res.json();
   });

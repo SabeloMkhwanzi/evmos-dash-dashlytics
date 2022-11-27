@@ -1,5 +1,5 @@
 import React from "react";
-import { createStyles, Card, Container, Paper } from "@mantine/core";
+import { createStyles, Container, Paper } from "@mantine/core";
 import {
   Area,
   AreaChart,

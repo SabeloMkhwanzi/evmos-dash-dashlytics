@@ -7,8 +7,6 @@ import {
   Group,
   Center,
   TextInput,
-  Container,
-  Card,
   SimpleGrid,
   Paper,
   Text,
@@ -131,6 +129,7 @@ export default function TokenPairTable({ data }) {
     );
   };
 
+  // used numbro library to convert big numbers to human readable digits
   var numbro = require("numbro");
 
   const rows = sortedData?.pairs.map((row) => (

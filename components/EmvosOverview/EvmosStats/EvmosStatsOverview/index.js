@@ -5,7 +5,6 @@ import {
   Paper,
   ThemeIcon,
   Space,
-  Card,
   Text,
   Avatar,
   SimpleGrid,
@@ -15,12 +14,13 @@ import {
   Tooltip,
   Button,
 } from "@mantine/core";
-import { VStack, HStack, Box } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import {
   IconArrowUpRight,
   IconArrowDownRight,
   IconCopy,
   IconCheck,
+  IconExternalLink,
 } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
@@ -207,13 +207,15 @@ export default function EvmosStatsOverview({ data }) {
             </Box>
             <Box>
               <Button
+                radius="lg"
                 component="a"
                 href="http://evmos.org/"
                 variant="subtle"
                 color="violet"
                 compact
+                rightIcon={<IconExternalLink size={14} />}
               >
-                Web Link
+                Visit Evmos
               </Button>
               <Space h="md" />
               <Group spacing="xs">

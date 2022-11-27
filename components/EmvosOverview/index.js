@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import moment from "moment";
 import MarketcapChart from "./MarketcapChart";
 import PriceChart from "./PriceChart";
-import { SimpleGrid, Loader, Center, Notification } from "@mantine/core";
+import { SimpleGrid, Loader, Center, Notification, Text } from "@mantine/core";
 import { Flex } from "@chakra-ui/react";
 import TokenPair from "./TokenPair";
 import EvmosStats from "./EvmosStats";
@@ -18,7 +18,9 @@ export default function EmvosOverview() {
     return res.json();
   });
 
+  // used numbro library to convert big numbers to human readable digits
   var numbro = require("numbro");
+
   console.log(
     data?.total_volumes.map((item) => ({
       x: moment(item[0]).format("MMM Do YY"),
@@ -38,7 +40,7 @@ export default function EmvosOverview() {
     }),
   }));
 
-  // Chart data for Evmos Total Volumes
+  // Chart data for Evmos Total Volumes ==> not applied
   const totalVolumes = data?.total_volumes.map((item) => ({
     x: moment(item[0]).format("MMM Do"),
     Volumes: numbro(item[1]).format({
@@ -86,6 +88,9 @@ export default function EmvosOverview() {
 
   return (
     <>
+      <Text c="dimmed" fz="xl" tt="uppercase">
+        Evmos Analytics
+      </Text>
       <Flex justifyContent="space-evenly">
         <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
           <PriceChart prices={prices} />
