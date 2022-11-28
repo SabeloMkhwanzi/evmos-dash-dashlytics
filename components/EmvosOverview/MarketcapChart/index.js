@@ -45,6 +45,7 @@ const useStyles = createStyles((theme) => ({
 
 export default function MarketcapChart({ marketCap }) {
   const { classes } = useStyles();
+  var numbro = require("numbro");
 
   return (
     <>
@@ -68,30 +69,30 @@ export default function MarketcapChart({ marketCap }) {
             direction="row"
           >
             <Button variant="default" compact>
-              D
-            </Button>
-            <Button variant="default" compact>
-              W
-            </Button>
-            <Button variant="default" compact>
-              Y
+              6M
             </Button>
           </Flex>
           <ResponsiveContainer width="100%" height={230}>
             <BarChart data={marketCap}>
               <defs>
                 <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#2451B7" stopOpacity={0.4} />
-                  <stop offset="75%" stopColor="#2451B7" stopOpacity={0.05} />
+                  <stop offset="0%" stopColor="#F7A76C" stopOpacity={0.4} />
+                  <stop offset="75%" stopColor="#F7A76C" stopOpacity={0.05} />
                 </linearGradient>
               </defs>
-              <Bar dataKey="MarketCap" stroke="#2451B7" fill="url(#color)" />
+              <Bar dataKey="MarketCap" stroke="#DC5F00" fill="url(#color)" />
               <XAxis axisLine={false} tickLine={false} dataKey="x" />
               <YAxis
                 axisLine={false}
                 tickLine={false}
                 tickCount={8}
-                tickFormatter={(number) => `$${number.toFixed(2)}`}
+                tickFormatter={(number) =>
+                  numbro(number).formatCurrency({
+                    average: true,
+                    mantissa: 1,
+                    optionalMantissa: true,
+                  })
+                }
               />
               <Tooltip content={<CustomTooltip />} />
               <CartesianGrid opacity={0.1} vertical={false} />

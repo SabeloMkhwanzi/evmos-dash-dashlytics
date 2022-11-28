@@ -13,41 +13,28 @@ export default function EmvosOverview() {
   // used React-Query to fetch Covalent API
   const { data, error, isFetching } = useQuery(["ecosystem"], async () => {
     const res = await fetch(
-      "https://api.coingecko.com/api/v3/coins/evmos/market_chart?vs_currency=usd&days=120&interval=daily"
+      "https://api.coingecko.com/api/v3/coins/evmos/market_chart?vs_currency=usd&days=183&interval=daily"
     );
     return res.json();
   });
 
-  // used numbro library to convert big numbers to human readable digits
-  var numbro = require("numbro");
-
   console.log(
     data?.total_volumes.map((item) => ({
       x: moment(item[0]).format("MMM Do YY"),
-      line: numbro(item[1]).format({
-        average: true,
-      }),
+      line: item[1],
     }))
   );
-
-  const formatCash = (n) => {
-    if (n < 1e3) return n;
-    if (n >= 1e3 && n < 1e6) return +(n / 1e3).toFixed(1);
-    if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(1);
-    if (n >= 1e9 && n < 1e12) return +(n / 1e9).toFixed(1);
-    if (n >= 1e12) return +(n / 1e12).toFixed(1);
-  };
 
   // Chart data for Evmos market_caps
   const marketCap = data?.market_caps.map((item) => ({
     x: moment(item[0]).format("MMM Do"),
-    MarketCap: formatCash(item[1]),
+    MarketCap: item[1],
   }));
 
   // Chart data for Evmos Total Volumes ==> not applied
   const totalVolumes = data?.total_volumes.map((item) => ({
     x: moment(item[0]).format("MMM Do"),
-    Volumes: formatCash(item[1]),
+    Volumes: item[1],
   }));
 
   // Chart data for Evmos price

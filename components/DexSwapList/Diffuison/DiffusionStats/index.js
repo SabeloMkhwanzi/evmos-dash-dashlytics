@@ -51,7 +51,6 @@ export default function DiffusionStats() {
     );
   return (
     <>
-      {" "}
       <DiffusionStatsOverview data={data} />
     </>
   );

@@ -18,7 +18,6 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
-import { format, parseISO, subDays } from "date-fns";
 
 const useStyles = createStyles((theme) => ({
   Paper: {
@@ -47,6 +46,7 @@ const useStyles = createStyles((theme) => ({
 
 export default function PriceChart({ prices }) {
   const { classes } = useStyles();
+  var numbro = require("numbro");
 
   return (
     <>
@@ -70,30 +70,30 @@ export default function PriceChart({ prices }) {
             direction="row"
           >
             <Button variant="default" compact>
-              D
-            </Button>
-            <Button variant="default" compact>
-              W
-            </Button>
-            <Button variant="default" compact>
-              Y
+              6M
             </Button>
           </Flex>
           <ResponsiveContainer width="100%" height={230}>
             <AreaChart data={prices}>
               <defs>
                 <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#2451B7" stopOpacity={0.4} />
-                  <stop offset="75%" stopColor="#2451B7" stopOpacity={0.05} />
+                  <stop offset="0%" stopColor="#FF884B" stopOpacity={0.4} />
+                  <stop offset="75%" stopColor="#FF884B" stopOpacity={0.05} />
                 </linearGradient>
               </defs>
-              <Area stroke="#2451B7" fill="url(#color)" dataKey="Price" />
+              <Area stroke="#DC5F00" fill="url(#color)" dataKey="Price" />
               <XAxis axisLine={false} tickLine={false} dataKey="x" />
               <YAxis
                 axisLine={false}
                 tickLine={false}
                 tickCount={8}
-                tickFormatter={(number) => `$${number.toFixed(2)}`}
+                tickFormatter={(number) =>
+                  numbro(number).formatCurrency({
+                    average: true,
+                    mantissa: 1,
+                    optionalMantissa: true,
+                  })
+                }
               />
 
               <Tooltip content={<CustomTooltip />} />

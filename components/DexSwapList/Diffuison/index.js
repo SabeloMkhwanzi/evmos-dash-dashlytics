@@ -21,18 +21,6 @@ export default function DiffusionOverview() {
   });
   //console.log(data?.data?.items);
 
-  var numbro = require("numbro");
-
-  const formatCash = (n) => {
-    if (n < 1e3) return n;
-    if (n >= 1e3 && n < 1e6) return +(n / 1e3).toFixed(1);
-    if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(1);
-    if (n >= 1e9 && n < 1e12) return +(n / 1e9).toFixed(1);
-    if (n >= 1e12) return +(n / 1e12).toFixed(1);
-  };
-
-  var numbro = require("numbro");
-
   // Chart data for Evmos market_caps
   const DiffusionLiquidity = data?.data?.items[0].liquidity_chart_30d.map(
     (item) => ({
