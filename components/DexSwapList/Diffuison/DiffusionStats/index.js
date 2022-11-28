@@ -16,7 +16,7 @@ export default function DiffusionStats() {
     return res.json();
   });
 
-  console.log(data);
+  //console.log(data);
 
   if (isFetching)
     return (

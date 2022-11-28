@@ -20,7 +20,7 @@ const queryClient = new QueryClient({
 
 export default function App(props: AppProps) {
   // Defining Color Mode
-  const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
+  const [colorScheme, setColorScheme] = useState<ColorScheme>("dark");
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 

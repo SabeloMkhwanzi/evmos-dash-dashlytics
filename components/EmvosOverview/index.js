@@ -8,6 +8,7 @@ import { Flex } from "@chakra-ui/react";
 import TokenPair from "./TokenPair";
 import EvmosStats from "./EvmosStats";
 import { IconX } from "@tabler/icons";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 export default function EmvosOverview() {
   // used React-Query to fetch Covalent API
@@ -17,13 +18,6 @@ export default function EmvosOverview() {
     );
     return res.json();
   });
-
-  console.log(
-    data?.total_volumes.map((item) => ({
-      x: moment(item[0]).format("MMM Do YY"),
-      line: item[1],
-    }))
-  );
 
   // Chart data for Evmos market_caps
   const marketCap = data?.market_caps.map((item) => ({
@@ -83,6 +77,7 @@ export default function EmvosOverview() {
       <Flex justifyContent="space-evenly">
         <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
           <PriceChart prices={prices} />
+
           <MarketcapChart marketCap={marketCap} />
         </SimpleGrid>
       </Flex>

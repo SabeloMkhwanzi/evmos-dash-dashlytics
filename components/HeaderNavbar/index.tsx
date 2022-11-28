@@ -108,17 +108,17 @@ export default function HeaderNavbar() {
                 href="diffusion"
                 component="a"
                 variant="subtle"
-                color="violet"
+                color="white"
                 radius="md"
                 h={50}
               >
                 <Avatar
                   variant="outline"
-                  radius="lg"
+                  radius="xl"
                   mx={3}
-                  color="grape"
+                  color="white"
                   alt="diffusion"
-                  src="https://assets-global.website-files.com/626a943b5e0d745c0313657b/626ad0718bf48d5b671e67f2_sZ0ATBDy_400x400.jpeg"
+                  src="https://assets.coingecko.com/coins/images/25331/small/photo5451952870917257644.jpg?1651826321"
                 />
                 Diffusion
               </Button>
@@ -126,17 +126,17 @@ export default function HeaderNavbar() {
                 href="cronus"
                 component="a"
                 variant="subtle"
-                color="violet"
+                color="white"
                 radius="md"
                 h={50}
               >
                 <Avatar
                   variant="outline"
-                  radius="lg"
+                  radius="xl"
                   mx={3}
-                  color="grape"
+                  color="white"
                   alt="diffusion"
-                  src="https://assets-global.website-files.com/626a943b5e0d745c0313657b/626a96b1e0ea623fad409fb8_Cronus%20Finance.jpeg"
+                  src="https://assets.coingecko.com/coins/images/24022/small/h8GHzr2W_400x400.jpg?1646096205"
                 />
                 Cronus Finance
               </Button>
@@ -144,17 +144,17 @@ export default function HeaderNavbar() {
                 href="evmoswap"
                 component="a"
                 variant="subtle"
-                color="violet"
+                color="white"
                 radius="md"
                 h={50}
               >
                 <Avatar
                   variant="outline"
-                  radius="lg"
+                  radius="xl"
                   mx={3}
-                  color="grape"
+                  color="white"
                   alt="diffusion"
-                  src="https://assets-global.website-files.com/626a943b5e0d745c0313657b/63121af2ab5c98098a5c1ff0_evmosswap_400x400.jpeg"
+                  src="https://assets.coingecko.com/coins/images/25800/small/logox200.png?1653970616"
                 />
                 EvmoSwap
               </Button>

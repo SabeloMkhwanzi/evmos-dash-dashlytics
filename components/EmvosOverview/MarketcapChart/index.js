@@ -106,12 +106,17 @@ export default function MarketcapChart({ marketCap }) {
 
 function CustomTooltip({ active, payload, label }) {
   const { classes } = useStyles();
+  var numbro = require("numbro");
   if (active) {
     return (
       <Container spacing="xs" className={classes.tooltip}>
         <Text>{label}</Text>
         <Space h="x-small" />
-        <Text>${payload[0].value.toFixed(2)} USD</Text>
+        <Text>
+          {numbro(payload[0].value).formatCurrency({
+            average: true,
+          })}
+        </Text>
       </Container>
     );
   }

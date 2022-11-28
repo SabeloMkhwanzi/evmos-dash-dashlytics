@@ -14,7 +14,7 @@ export default function EvmoswapStats() {
     return res.json();
   });
 
-  console.log(data);
+  //console.log(data);
 
   if (isFetching)
     return (
