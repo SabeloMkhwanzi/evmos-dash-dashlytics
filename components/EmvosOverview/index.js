@@ -30,22 +30,24 @@ export default function EmvosOverview() {
     }))
   );
 
-  var numbro = require("numbro");
+  const formatCash = (n) => {
+    if (n < 1e3) return n;
+    if (n >= 1e3 && n < 1e6) return +(n / 1e3).toFixed(1);
+    if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(1);
+    if (n >= 1e9 && n < 1e12) return +(n / 1e9).toFixed(1);
+    if (n >= 1e12) return +(n / 1e12).toFixed(1);
+  };
 
   // Chart data for Evmos market_caps
   const marketCap = data?.market_caps.map((item) => ({
     x: moment(item[0]).format("MMM Do"),
-    MarketCap: numbro(item[1]).format({
-      trimMantissa: true,
-    }),
+    MarketCap: formatCash(item[1]),
   }));
 
   // Chart data for Evmos Total Volumes ==> not applied
   const totalVolumes = data?.total_volumes.map((item) => ({
     x: moment(item[0]).format("MMM Do"),
-    Volumes: numbro(item[1]).format({
-      average: true,
-    }),
+    Volumes: formatCash(item[1]),
   }));
 
   // Chart data for Evmos price
