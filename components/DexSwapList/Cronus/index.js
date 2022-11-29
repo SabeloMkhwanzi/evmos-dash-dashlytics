@@ -9,6 +9,7 @@ import CronusLiquidityChart from "./CronusLiquidityChart";
 import CronusStats from "./CronusStats";
 import CronusPools from "./CronusPools";
 import CronusTokens from "./CronusTokens";
+import CronusTransactions from "./CronusTransactions";
 
 //API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
@@ -82,6 +83,7 @@ export default function CronusOverview() {
       <CronusStats />
       <CronusPools />
       <CronusTokens />
+      <CronusTransactions />
     </>
   );
 }

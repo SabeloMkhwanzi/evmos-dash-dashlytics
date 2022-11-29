@@ -1,20 +1,23 @@
 import { Box } from "@chakra-ui/react";
 import { Loader, Center, Notification, Text } from "@mantine/core";
-import CronusTokensTable from "./CronusTokensTable";
+import CronusTokensOverviewTable from "./CronusTokensOverviewTable";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
 
 //API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
-export default function CronusTokens() {
+export default function CronusTokensOverview() {
   // used React-Query to fetch Covalent API
-  const { data, error, isFetching } = useQuery(["cronusTokens"], async () => {
-    const res = await fetch(
-      `https://api.covalenthq.com/v1/9001/xy=k/cronus/tokens/?key=${APIKey}`
-    );
-    return res.json();
-  });
+  const { data, error, isFetching } = useQuery(
+    ["CronusTokensOverview"],
+    async () => {
+      const res = await fetch(
+        `https://api.covalenthq.com/v1/9001/xy=k/cronus/tokens/?key=${APIKey}`
+      );
+      return res.json();
+    }
+  );
 
   const items2 = data?.data?.items;
 
@@ -56,7 +59,7 @@ export default function CronusTokens() {
     <Box>
       <Box minWidth="1220" maxW="600" justifyItems="center" mx="auto" mb={20}>
         <Text fw={500}>Top Tokens</Text>
-        <CronusTokensTable data={items2} />
+        <CronusTokensOverviewTable data={items2} />
       </Box>
     </Box>
   );

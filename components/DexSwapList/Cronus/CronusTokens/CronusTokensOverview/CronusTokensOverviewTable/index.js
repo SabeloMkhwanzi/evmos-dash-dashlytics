@@ -97,7 +97,7 @@ export default function CronusTokensTable({ data }) {
       <Center>
         <Paper width="600" withBorder className={classes.card}>
           <ScrollArea
-            sx={{ height: 400 }}
+            sx={{ height: 800 }}
             onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
           >
             <TextInput placeholder="Search by Ticker name" mb="md" />

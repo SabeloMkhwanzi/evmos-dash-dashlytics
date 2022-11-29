@@ -5,6 +5,7 @@ import {
   UnstyledButton,
   createStyles,
   Stack,
+  Button,
 } from "@mantine/core";
 import {
   TablerIcon,
@@ -72,40 +73,90 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
   );
 }
 
-const mockdata = [
-  { icon: IconHome2, label: "Home" },
-  { icon: IconDeviceDesktopAnalytics, label: "Analytics" },
-  { icon: IconPool, label: "Pools" },
-  { icon: IconCoin, label: "Tokens" },
-  { icon: IconExchange, label: "Assets" },
-  { icon: IconWallet, label: "Dex" },
-];
-
 export default function SideNavbarCronus() {
   const [active, setActive] = useState(2);
-
-  const links = mockdata.map((link, index) => (
-    <NavbarLink
-      {...link}
-      key={link.label}
-      active={index === active}
-      onClick={() => setActive(index)}
-    />
-  ));
+  const { classes, cx } = useStyles();
 
   return (
     <>
       <Navbar width={{ base: 80 }} p="md">
         <Navbar.Section grow mt={5}>
-          <Stack justify="center" spacing={0}>
-            {links}
+          <Stack justify="center" spacing={10} my="auto">
+            <Tooltip label="Home" position="right" transitionDuration={0}>
+              <Button
+                component="a"
+                href="/"
+                color="gray"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconHome2 />
+              </Button>
+            </Tooltip>
+
+            <Tooltip label="Analytics" position="right" transitionDuration={0}>
+              <Button
+                component="a"
+                href="/cronus"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconDeviceDesktopAnalytics />
+              </Button>
+            </Tooltip>
+
+            <Tooltip label="Pools" position="right" transitionDuration={0}>
+              <Button
+                component="a"
+                href="/cronusPoolsOverview"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconPool />
+              </Button>
+            </Tooltip>
+
+            <Tooltip label="Tokens" position="right" transitionDuration={0}>
+              <Button
+                component="a"
+                href="cronusTokensOverview"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconCoin />
+              </Button>
+            </Tooltip>
+
+            <Tooltip label="Dex" position="right" transitionDuration={0}>
+              <Button
+                component="a"
+                target="_blank"
+                href="https://cronusfinance.xyz/#/swap"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconExchange />
+              </Button>
+            </Tooltip>
+            {/* <Tooltip label="Dex" position="right" transitionDuration={0}>
+              <Button
+                component="a"
+                href="#"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconWallet />
+              </Button>
+            </Tooltip> */}
           </Stack>
         </Navbar.Section>
 
         <Navbar.Section>
-          <Stack justify="center" spacing={0}>
-            <NavbarLink icon={IconSwitchHorizontal} label="Change account" />
-            <NavbarLink icon={IconLogout} label="Logout" />
+          <Stack justify="center" spacing={10}>
+            <UnstyledButton
+              className={cx(classes.link, { [classes.active]: active })}
+            >
+              <IconSwitchHorizontal />
+            </UnstyledButton>
+            <UnstyledButton
+              className={cx(classes.link, { [classes.active]: active })}
+            >
+              <IconLogout />
+            </UnstyledButton>
           </Stack>
         </Navbar.Section>
       </Navbar>
