@@ -7,6 +7,8 @@ import moment from "moment";
 import CronusVolumeChart from "./CronusVolumeChart";
 import CronusLiquidityChart from "./CronusLiquidityChart";
 import CronusStats from "./CronusStats";
+import CronusPools from "./CronusPools";
+import CronusTokens from "./CronusTokens";
 
 //API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
@@ -61,7 +63,7 @@ export default function CronusOverview() {
         }}
       >
         <Notification icon={<IconX size={18} />} color="red">
-          Error! Failed to Fetch API
+          Error! Failed to Fetch Cronus Chart API
         </Notification>
       </Center>
     );
@@ -78,6 +80,8 @@ export default function CronusOverview() {
         </SimpleGrid>
       </Flex>
       <CronusStats />
+      <CronusPools />
+      <CronusTokens />
     </>
   );
 }

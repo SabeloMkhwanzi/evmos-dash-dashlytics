@@ -19,7 +19,6 @@ import {
   IconSearch,
 } from "@tabler/icons";
 import { HStack } from "@chakra-ui/react";
-import { usePagination } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
   th: {
@@ -78,14 +77,14 @@ function Th({ children, reversed, sorted, onSort }) {
   );
 }
 
-function filterData(data, search) {
+function filterData({ data, search }) {
   const query = search.toLowerCase().trim();
   return data.filter((item) =>
     keys(data[0]).some((key) => item[key].toLowerCase().includes(query))
   );
 }
 
-function sortData(data, payload) {
+function sortData({ data, payload }) {
   const { sortBy } = payload;
 
   if (!sortBy) {

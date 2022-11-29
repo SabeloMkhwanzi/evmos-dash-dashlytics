@@ -43,7 +43,7 @@ export default function CronusStats() {
         }}
       >
         <Notification icon={<IconX size={18} />} color="red">
-          Error! Failed to Fetch API
+          Error! Failed to Fetch Cronus Stats API
         </Notification>
       </Center>
     );

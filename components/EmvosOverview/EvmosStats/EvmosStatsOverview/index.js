@@ -150,7 +150,7 @@ export default function EvmosStatsOverview({ data }) {
 
                   <ThemeIcon
                     color="gray"
-                    variant="light"
+                    variant="subtle"
                     sx={(theme) => ({
                       color:
                         numbro(
@@ -159,8 +159,7 @@ export default function EvmosStatsOverview({ data }) {
                           ? theme.colors.teal[6]
                           : theme.colors.red[6],
                     })}
-                    size={38}
-                    radius="md"
+                    size={30}
                   >
                     <DiffIcon size={28} stroke={1.5} />
                   </ThemeIcon>
