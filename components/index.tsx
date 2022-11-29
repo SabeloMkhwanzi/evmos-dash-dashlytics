@@ -32,4 +32,9 @@ export { default as EvmoswapVolumeChart } from "./DexSwapList/Evmoswap/EvmoswapV
 export { default as CronusPools } from "./DexSwapList/Cronus/CronusPools";
 export { default as CronusPoolsTable } from "./DexSwapList/Cronus/CronusPools/CronusPoolsTable";
 export { default as CronusTokens } from "./DexSwapList/Cronus/CronusTokens";
-export { default as CronusTokensTable } from "./DexSwapList/Cronus/CronusTokens/CronusTokensTable";
+export { default as CronusTransactions } from "./DexSwapList/Cronus/CronusTransactions";
+export { default as CronusTransactionsTable } from "./DexSwapList/Cronus/CronusTransactions/CronusTransactionsTable";
+export { default as CronusPoolsOverview } from "./DexSwapList/Cronus/CronusPools/CronusPoolsOverview";
+export { default as CronusPoolsOverviewTable } from "./DexSwapList/Cronus/CronusPools/CronusPoolsOverview/CronusPoolsOverviewTable";
+export { default as CronusTokensOverview } from "./DexSwapList/Cronus/CronusPools/CronusPoolsOverview";
+export { default as CronusTokensOverviewTable } from "./DexSwapList/Cronus/CronusPools/CronusPoolsOverview/CronusPoolsOverviewTable";
