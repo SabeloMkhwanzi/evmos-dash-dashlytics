@@ -5,7 +5,6 @@ import {
   IconBrandInstagram,
 } from "@tabler/icons";
 import { MantineLogo } from "@mantine/ds";
-import { Center, Flex } from "@chakra-ui/react";
 
 const useStyles = createStyles((theme) => ({
   footer: {

@@ -8,13 +8,11 @@ import {
   Button,
 } from "@mantine/core";
 import {
-  TablerIcon,
   IconHome2,
   IconDeviceDesktopAnalytics,
   IconPool,
   IconCoin,
   IconExchange,
-  IconWallet,
   IconLogout,
   IconSwitchHorizontal,
 } from "@tabler/icons";
@@ -52,27 +50,6 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface NavbarLinkProps {
-  icon: TablerIcon;
-  label: string;
-  active?: boolean;
-  onClick?(): void;
-}
-
-function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
-  const { classes, cx } = useStyles();
-  return (
-    <Tooltip label={label} position="right" transitionDuration={0}>
-      <UnstyledButton
-        onClick={onClick}
-        className={cx(classes.link, { [classes.active]: active })}
-      >
-        <Icon stroke={1.5} />
-      </UnstyledButton>
-    </Tooltip>
-  );
-}
-
 export default function SideNavbarCronus() {
   const [active, setActive] = useState(2);
   const { classes, cx } = useStyles();
@@ -103,7 +80,7 @@ export default function SideNavbarCronus() {
               </Button>
             </Tooltip>
 
-            <Tooltip label="Pools" position="right" transitionDuration={0}>
+            <Tooltip label="Pairs" position="right" transitionDuration={0}>
               <Button
                 component="a"
                 href="/cronusPoolsOverview"
@@ -123,7 +100,11 @@ export default function SideNavbarCronus() {
               </Button>
             </Tooltip>
 
-            <Tooltip label="Dex" position="right" transitionDuration={0}>
+            <Tooltip
+              label="Cronus Finance Dex"
+              position="right"
+              transitionDuration={0}
+            >
               <Button
                 component="a"
                 target="_blank"
@@ -133,15 +114,6 @@ export default function SideNavbarCronus() {
                 <IconExchange />
               </Button>
             </Tooltip>
-            {/* <Tooltip label="Dex" position="right" transitionDuration={0}>
-              <Button
-                component="a"
-                href="#"
-                className={cx(classes.link, { [classes.active]: active })}
-              >
-                <IconWallet />
-              </Button>
-            </Tooltip> */}
           </Stack>
         </Navbar.Section>
 

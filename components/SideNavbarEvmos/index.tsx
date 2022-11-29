@@ -5,15 +5,14 @@ import {
   UnstyledButton,
   createStyles,
   Stack,
+  Button,
 } from "@mantine/core";
 import {
-  TablerIcon,
   IconHome2,
   IconDeviceDesktopAnalytics,
   IconPool,
   IconCoin,
   IconExchange,
-  IconWallet,
   IconLogout,
   IconSwitchHorizontal,
 } from "@tabler/icons";
@@ -51,61 +50,85 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface NavbarLinkProps {
-  icon: TablerIcon;
-  label: string;
-  active?: boolean;
-  onClick?(): void;
-}
-
-function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
-  const { classes, cx } = useStyles();
-  return (
-    <Tooltip label={label} position="right" transitionDuration={0}>
-      <UnstyledButton
-        onClick={onClick}
-        className={cx(classes.link, { [classes.active]: active })}
-      >
-        <Icon stroke={1.5} />
-      </UnstyledButton>
-    </Tooltip>
-  );
-}
-
-const mockdata = [
-  { icon: IconHome2, label: "Home" },
-  { icon: IconDeviceDesktopAnalytics, label: "Analytics" },
-  { icon: IconPool, label: "Pools" },
-  { icon: IconCoin, label: "Tokens" },
-  { icon: IconExchange, label: "Assets" },
-  { icon: IconWallet, label: "Dex" },
-];
-
 export default function SideNavbarEvmoswap() {
   const [active, setActive] = useState(2);
-
-  const links = mockdata.map((link, index) => (
-    <NavbarLink
-      {...link}
-      key={link.label}
-      active={index === active}
-      onClick={() => setActive(index)}
-    />
-  ));
+  const { classes, cx } = useStyles();
 
   return (
     <>
       <Navbar width={{ base: 80 }} p="md">
         <Navbar.Section grow mt={5}>
-          <Stack justify="center" spacing={0}>
-            {links}
+          <Stack justify="center" spacing={10} my="auto">
+            <Tooltip label="Home" position="right" transitionDuration={0}>
+              <Button
+                component="a"
+                href="/"
+                color="gray"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconHome2 />
+              </Button>
+            </Tooltip>
+
+            <Tooltip label="Analytics" position="right" transitionDuration={0}>
+              <Button
+                component="a"
+                href="/evmoswap"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconDeviceDesktopAnalytics />
+              </Button>
+            </Tooltip>
+
+            <Tooltip label="Pairs" position="right" transitionDuration={0}>
+              <Button
+                component="a"
+                href="/evmoswapPoolsOverview"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconPool />
+              </Button>
+            </Tooltip>
+
+            <Tooltip label="Tokens" position="right" transitionDuration={0}>
+              <Button
+                component="a"
+                href="evmoswapTokensOverview"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconCoin />
+              </Button>
+            </Tooltip>
+
+            <Tooltip
+              label="evmoswap Dex"
+              position="right"
+              transitionDuration={0}
+            >
+              <Button
+                component="a"
+                target="_blank"
+                href="https://app.evmoswap.org/swap "
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconExchange />
+              </Button>
+            </Tooltip>
           </Stack>
         </Navbar.Section>
 
         <Navbar.Section>
-          <Stack justify="center" spacing={0}>
-            <NavbarLink icon={IconSwitchHorizontal} label="Change account" />
-            <NavbarLink icon={IconLogout} label="Logout" />
+          <Stack justify="center" spacing={10}>
+            <UnstyledButton
+              className={cx(classes.link, { [classes.active]: active })}
+            >
+              <IconSwitchHorizontal />
+            </UnstyledButton>
+            <UnstyledButton
+              className={cx(classes.link, { [classes.active]: active })}
+            >
+              <IconLogout />
+            </UnstyledButton>
           </Stack>
         </Navbar.Section>
       </Navbar>

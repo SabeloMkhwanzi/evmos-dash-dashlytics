@@ -21,6 +21,27 @@ import {
 import { HStack } from "@chakra-ui/react";
 
 const useStyles = createStyles((theme) => ({
+  header: {
+    position: "sticky",
+    top: 0,
+    backgroundColor:
+      theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white,
+    transition: "box-shadow 150ms ease",
+
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      left: 0,
+      right: 0,
+      bottom: 0,
+      borderBottom: `1px solid ${
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[3]
+          : theme.colors.gray[2]
+      }`,
+    },
+  },
+
   th: {
     padding: "0 !important",
     textAlign: "right",
@@ -52,6 +73,9 @@ const useStyles = createStyles((theme) => ({
       boxShadow: theme.shadows.md,
     },
   },
+  scrolled: {
+    boxShadow: theme.shadows.sm,
+  },
 }));
 
 function Th({ children, reversed, sorted, onSort }) {
@@ -77,57 +101,10 @@ function Th({ children, reversed, sorted, onSort }) {
   );
 }
 
-function filterData({ data, search }) {
-  const query = search.toLowerCase().trim();
-  return data.filter((item) =>
-    keys(data[0]).some((key) => item[key].toLowerCase().includes(query))
-  );
-}
-
-function sortData({ data, payload }) {
-  const { sortBy } = payload;
-
-  if (!sortBy) {
-    return filterData(data, payload.search);
-  }
-
-  return filterData(
-    [...data].sort((a, b) => {
-      if (payload.reversed) {
-        return b[sortBy].localeCompare(a[sortBy]);
-      }
-
-      return a[sortBy].localeCompare(b[sortBy]);
-    }),
-    payload.search
-  );
-}
-
 export default function TokenPairTable({ data }) {
-  const { classes } = useStyles();
-  const [search, setSearch] = useState("");
+  const { classes, cx } = useStyles();
   const [sortedData, setSortedData] = useState(data);
-  const [sortBy, setSortBy] = useState(null);
-  const [reverseSortDirection, setReverseSortDirection] = useState(false);
-
-  const setSorting = (field) => {
-    const reversed = field === sortBy ? !reverseSortDirection : false;
-    setReverseSortDirection(reversed);
-    setSortBy(field);
-    setSortedData(sortData(data, { sortBy: field, reversed, search }));
-  };
-
-  const handleSearchChange = (event) => {
-    const { value } = event.currentTarget;
-    setSearch(value);
-    setSortedData(
-      sortData(data?.pairs, {
-        sortBy,
-        reversed: reverseSortDirection,
-        search: value,
-      })
-    );
-  };
+  const [scrolled, setScrolled] = useState(false);
 
   // used numbro library to convert big numbers to human readable digits
   var numbro = require("numbro");
@@ -190,62 +167,45 @@ export default function TokenPairTable({ data }) {
   return (
     <Center>
       <Paper width="600" withBorder className={classes.card}>
-        <ScrollArea>
+        <ScrollArea
+          sx={{ height: 600 }}
+          onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
+        >
           <TextInput
             placeholder="Search by any field"
             mb="md"
             icon={<IconSearch size={14} stroke={1.5} />}
-            value={search}
-            onChange={handleSearchChange}
           />
           <Table
             horizontalSpacing="md"
             verticalSpacing="xs"
             sx={{ tableLayout: "fixed", minWidth: 700 }}
           >
-            <thead>
+            <thead
+              className={cx(classes.header, { [classes.scrolled]: scrolled })}
+            >
               <tr>
-                <Th
-                  sorted={sortBy === "name"}
-                  reversed={reverseSortDirection}
-                  onSort={() => setSorting("name")}
-                >
+                <Th>
                   <Text c="dimmed" fw={700} tt="uppercase">
                     TOKENS
                   </Text>
                 </Th>
-                <Th
-                  sorted={sortBy === "name"}
-                  reversed={reverseSortDirection}
-                  onSort={() => setSorting("name")}
-                >
+                <Th>
                   <Text c="dimmed" fw={700} tt="uppercase">
                     Price (USD)
                   </Text>
                 </Th>
-                <Th
-                  sorted={sortBy === "name"}
-                  reversed={reverseSortDirection}
-                  onSort={() => setSorting("name")}
-                >
+                <Th>
                   <Text c="dimmed" fw={700} tt="uppercase">
                     volume h24
                   </Text>
                 </Th>
-                <Th
-                  sorted={sortBy === "email"}
-                  reversed={reverseSortDirection}
-                  onSort={() => setSorting("email")}
-                >
+                <Th>
                   <Text c="dimmed" fw={700} tt="uppercase">
                     Liquidity
                   </Text>
                 </Th>
-                <Th
-                  sorted={sortBy === "company"}
-                  reversed={reverseSortDirection}
-                  onSort={() => setSorting("company")}
-                >
+                <Th>
                   <Text c="dimmed" fw={700} tt="uppercase">
                     FDV
                   </Text>
