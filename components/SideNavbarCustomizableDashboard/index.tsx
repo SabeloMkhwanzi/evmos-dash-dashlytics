@@ -8,14 +8,19 @@ import {
   Button,
 } from "@mantine/core";
 import {
+  TablerIcon,
   IconHome2,
-  IconDeviceDesktopAnalytics,
   IconPool,
-  IconCoin,
-  IconExchange,
+  IconGauge,
+  IconDeviceDesktopAnalytics,
+  IconChartInfographic,
+  IconChartDots,
+  IconChartBar,
+  IconBook2,
+  IconArrowsTransferUp,
+  IconTemplate,
   IconLogout,
   IconSwitchHorizontal,
-  IconTemplate,
 } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
@@ -51,7 +56,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function SideNavbarEvmoswap() {
+export default function SideNavbarCustomizableDashboard() {
   const [active, setActive] = useState(2);
   const { classes, cx } = useStyles();
 
@@ -68,64 +73,6 @@ export default function SideNavbarEvmoswap() {
                 className={cx(classes.link, { [classes.active]: active })}
               >
                 <IconHome2 />
-              </Button>
-            </Tooltip>
-
-            <Tooltip label="Analytics" position="right" transitionDuration={0}>
-              <Button
-                component="a"
-                href="/evmoswap"
-                className={cx(classes.link, { [classes.active]: active })}
-              >
-                <IconDeviceDesktopAnalytics />
-              </Button>
-            </Tooltip>
-
-            <Tooltip label="Pairs" position="right" transitionDuration={0}>
-              <Button
-                component="a"
-                href="/evmoswapPoolsOverview"
-                className={cx(classes.link, { [classes.active]: active })}
-              >
-                <IconPool />
-              </Button>
-            </Tooltip>
-
-            <Tooltip label="Tokens" position="right" transitionDuration={0}>
-              <Button
-                component="a"
-                href="evmoswapTokensOverview"
-                className={cx(classes.link, { [classes.active]: active })}
-              >
-                <IconCoin />
-              </Button>
-            </Tooltip>
-
-            <Tooltip
-              label="evmoswap Dex"
-              position="right"
-              transitionDuration={0}
-            >
-              <Button
-                component="a"
-                target="_blank"
-                href="https://app.evmoswap.org/swap "
-                className={cx(classes.link, { [classes.active]: active })}
-              >
-                <IconExchange />
-              </Button>
-            </Tooltip>
-            <Tooltip
-              label="Customizable Dashboard"
-              position="right"
-              transitionDuration={0}
-            >
-              <Button
-                component="a"
-                href="/customizableDashboard"
-                className={cx(classes.link, { [classes.active]: active })}
-              >
-                <IconTemplate />
               </Button>
             </Tooltip>
           </Stack>

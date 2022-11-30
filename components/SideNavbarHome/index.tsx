@@ -18,6 +18,7 @@ import {
   IconChartBar,
   IconBook2,
   IconArrowsTransferUp,
+  IconTemplate,
   IconLogout,
   IconSwitchHorizontal,
 } from "@tabler/icons";
@@ -76,6 +77,19 @@ export default function SideNavbarHome() {
               </Button>
             </Tooltip>
 
+            <Tooltip
+              label="Customizable Dashboard"
+              position="right"
+              transitionDuration={0}
+            >
+              <Button
+                component="a"
+                href="/customizableDashboard"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconTemplate />
+              </Button>
+            </Tooltip>
             <Tooltip label="Evmos App" position="right" transitionDuration={0}>
               <Button
                 component="a"
@@ -86,7 +100,6 @@ export default function SideNavbarHome() {
                 <IconGauge />
               </Button>
             </Tooltip>
-
             <Tooltip label="Evmso Doc" position="right" transitionDuration={0}>
               <Button
                 component="a"

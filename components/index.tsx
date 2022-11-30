@@ -55,3 +55,4 @@ export { default as EvmoswapTokensOverview } from "./DexSwapList/Evmoswap/Evmosw
 export { default as EvmoswapTokenTable } from "./DexSwapList/Evmoswap/EvmoswapTokens/EvmoswapTokenTable";
 export { default as EvmoswapTokens } from "./DexSwapList/Evmoswap/EvmoswapTokens";
 export { default as EvmoswapTokensOverviewTable } from "./DexSwapList/Evmoswap/EvmoswapTokens/EvmoswapTokensOverview/EvmoswapTokensOverviewTable";
+export { default as SideNavbarCustomizableDashboard } from "./SideNavbarCustomizableDashboard";

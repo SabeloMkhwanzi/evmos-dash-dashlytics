@@ -17,6 +17,7 @@ import {
   IconWallet,
   IconLogout,
   IconSwitchHorizontal,
+  IconTemplate,
 } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
@@ -114,6 +115,19 @@ export default function SideNavbarDiffusion() {
                 className={cx(classes.link, { [classes.active]: active })}
               >
                 <IconExchange />
+              </Button>
+            </Tooltip>
+            <Tooltip
+              label="Customizable Dashboard"
+              position="right"
+              transitionDuration={0}
+            >
+              <Button
+                component="a"
+                href="/customizableDashboard"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconTemplate />
               </Button>
             </Tooltip>
           </Stack>
