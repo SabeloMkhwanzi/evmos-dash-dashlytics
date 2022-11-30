@@ -26,10 +26,10 @@ export default function EmvosOverview() {
   }));
 
   // Chart data for Evmos Total Volumes ==> not applied
-  const totalVolumes = data?.total_volumes.map((item) => ({
-    x: moment(item[0]).format("MMM Do"),
-    Volumes: item[1],
-  }));
+  // const totalVolumes = data?.total_volumes.map((item) => ({
+  //   x: moment(item[0]).format("MMM Do"),
+  //   Volumes: item[1],
+  // }));
 
   // Chart data for Evmos price
   const prices = data?.prices.map((item) => ({

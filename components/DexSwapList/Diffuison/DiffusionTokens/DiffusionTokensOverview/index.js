@@ -1,13 +1,13 @@
 import { Box } from "@chakra-ui/react";
 import { Loader, Center, Notification, Text } from "@mantine/core";
-import DiffusionTokenTable from "./DiffusionTokenTable";
+import DiffusionTokensOverviewTable from "./DiffusionTokensOverviewTable";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
 
 //API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
-export default function DiffusionTokens() {
+export default function DiffusionTokensOverview() {
   // used React-Query to fetch Covalent API
   const { data, error, isFetching } = useQuery(
     ["DiffusionTokensOverview"],
@@ -59,7 +59,7 @@ export default function DiffusionTokens() {
     <Box>
       <Box minWidth="1220" maxW="600" justifyItems="center" mx="auto" mb={20}>
         <Text fw={500}>Top Tokens</Text>
-        <DiffusionTokenTable data={items2} />
+        <DiffusionTokensOverviewTable data={items2} />
       </Box>
     </Box>
   );

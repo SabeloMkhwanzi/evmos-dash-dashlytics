@@ -72,7 +72,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function CronusTokensTable({ data }) {
+export default function CronusTokensOverviewTable({ data }) {
   const [scrolled, setScrolled] = useState(false);
   const { classes, cx } = useStyles();
 

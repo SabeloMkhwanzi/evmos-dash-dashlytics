@@ -7,6 +7,9 @@ import moment from "moment";
 import DiffuisonLiquidityChart from "./DiffusionLiquidityChart";
 import DiffusionVolumeChart from "./DiffusionVolumeChart";
 import DiffusionStats from "./DiffusionStats";
+import DiffusionTransactions from "./DiffusionTransactions";
+import DiffusionPools from "./DiffusionPools";
+import DiffusionTokens from "./DiffusionTokens";
 
 //API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
@@ -78,6 +81,9 @@ export default function DiffusionOverview() {
         </SimpleGrid>
       </Flex>
       <DiffusionStats />
+      <DiffusionPools />
+      <DiffusionTokens />
+      <DiffusionTransactions />
     </>
   );
 }

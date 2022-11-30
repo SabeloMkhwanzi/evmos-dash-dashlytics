@@ -42,7 +42,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function EvmosStatsOverview({ data }) {
+export default function DiffusionStatsOverview({ data }) {
   const { classes } = useStyles();
 
   const DiffIcon =

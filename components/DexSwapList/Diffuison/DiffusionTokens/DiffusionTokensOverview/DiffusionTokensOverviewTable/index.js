@@ -72,7 +72,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function DiffusionTokenTable({ data }) {
+export default function DiffusionTokensOverviewTable({ data }) {
   const [scrolled, setScrolled] = useState(false);
   const { classes, cx } = useStyles();
 
@@ -97,7 +97,7 @@ export default function DiffusionTokenTable({ data }) {
       <Center>
         <Paper width="600" withBorder className={classes.card}>
           <ScrollArea
-            sx={{ height: 400 }}
+            sx={{ height: 800 }}
             onScrollPositionChange={({ y }) => setScrolled(y !== 0)}
           >
             <TextInput placeholder="Search by Ticker name" mb="md" />

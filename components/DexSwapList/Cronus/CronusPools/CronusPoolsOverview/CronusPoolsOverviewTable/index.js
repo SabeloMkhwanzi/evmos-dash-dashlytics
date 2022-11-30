@@ -78,8 +78,6 @@ export default function CronusPoolsOverviewTable({ data }) {
   const DiffIcon =
     data.annualized_fee > 0 ? IconArrowUpRight : IconArrowDownRight;
 
-  console.log(data);
-
   var numbro = require("numbro");
 
   const rows = data.map((index) => (

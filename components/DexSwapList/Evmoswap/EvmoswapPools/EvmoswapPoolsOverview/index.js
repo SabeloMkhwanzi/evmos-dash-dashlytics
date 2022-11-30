@@ -1,27 +1,28 @@
+import React, { useEffect, useState } from "react";
 import { Box } from "@chakra-ui/react";
 import { Loader, Center, Notification, Text } from "@mantine/core";
-import DiffusionTokenTable from "./DiffusionTokenTable";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
+import EvmoswapPoolsOverviewTable from "./EvmoswapPoolsOverviewTable";
 
 //API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
-export default function DiffusionTokens() {
+export default function EvmoswapPoolsOverview() {
   // used React-Query to fetch Covalent API
   const { data, error, isFetching } = useQuery(
-    ["DiffusionTokensOverview"],
+    ["evmoswapPoolsOverview"],
     async () => {
       const res = await fetch(
-        `https://api.covalenthq.com/v1/9001/xy=k/diffusion/tokens/?key=${APIKey}`
+        `https://api.covalenthq.com/v1/9001/xy=k/evmoswap/pools/?key=${APIKey}`
       );
       return res.json();
     }
   );
 
-  const items2 = data?.data?.items;
+  const items = data?.data?.items;
 
-  //console.log(items2);
+  //console.log(items);
 
   if (isFetching)
     return (
@@ -34,7 +35,7 @@ export default function DiffusionTokens() {
           top: "0px",
         }}
       >
-        <Loader ssize="lg" color="blue" variant="bars" />
+        <Loader size="lg" color="blue" variant="bars" />
       </Center>
     );
 
@@ -50,16 +51,16 @@ export default function DiffusionTokens() {
         }}
       >
         <Notification icon={<IconX size={18} />} color="red">
-          Error! Failed to Fetch Diffusion Tokens API
+          Error! Failed to Fetch Evmoswap Pool API
         </Notification>
       </Center>
     );
 
   return (
     <Box>
-      <Box minWidth="1220" maxW="600" justifyItems="center" mx="auto" mb={20}>
-        <Text fw={500}>Top Tokens</Text>
-        <DiffusionTokenTable data={items2} />
+      <Box minWidth="1220" maxW="600" justifyItems="center" mx="auto" mb="20">
+        <Text fw={500}>Top Pairs</Text>
+        <EvmoswapPoolsOverviewTable data={items} />
       </Box>
     </Box>
   );

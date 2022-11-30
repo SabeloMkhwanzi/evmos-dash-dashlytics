@@ -8,7 +8,6 @@ import {
   ScrollArea,
   Space,
   Tooltip,
-  Button,
 } from "@mantine/core";
 import moment from "moment";
 
@@ -82,66 +81,69 @@ export default function CronusTransactionsTable({ data }) {
     return "";
   };
 
-  var numbro = require("numbro");
-
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
 
-  const rows = data.map((index) => (
-    <tr key={index.chain_name}>
-      <td>
-        <div style={{ display: "flex" }}>
-          <Text fw="bold" color="cyan.9" fz="md">
-            {index.act}
-          </Text>
-          <Space w="xs" />
-          <Text>{index.token_0.contract_ticker_symbol}</Text>
-          <Space w="xs" />
-          <Text>for</Text>
-          <Space w="xs" />
-          <Text>{index.token_1.contract_ticker_symbol}</Text>
-        </div>
-      </td>
-      <td>
-        <Text fw="bold" color="green.9" fz="md">
-          {formatter.format(index.total_quote)}
-        </Text>
-      </td>
-      <td>
-        <div style={{ display: "flex" }}>
-          <Text>{formatter.format(index.token_0_quote_rate)}</Text>
-          <Space w="xs" />
-          <Text>{index.token_0.contract_ticker_symbol}</Text>
-        </div>
-      </td>
+  // console.log(data);
 
-      <td>
-        <div style={{ display: "flex" }}>
-          <Text>{formatter.format(index.token_1_quote_rate)}</Text>
-          <Space w="xs" />
-          <Text>{index.token_1.contract_ticker_symbol}</Text>
-        </div>
-      </td>
-
-      <td>
-        <Tooltip label="Evmos Scan">
-          <Text
-            color="blue"
-            fw="bold"
-            component="a"
-            target="_blank"
-            variant="subtle"
-            href={`https://evm.evmos.org/address/${index.sender_address}`}
-          >
-            {getEllipsisTxt(index.sender_address)}
+  const rows = data
+    .slice(0)
+    .reverse()
+    .map((index) => (
+      <tr key={index.chain_name}>
+        <td>
+          <div style={{ display: "flex" }}>
+            <Text fw="bold" color="cyan.9" fz="md">
+              {index.act}
+            </Text>
+            <Space w="xs" />
+            <Text>{index.token_0.contract_ticker_symbol}</Text>
+            <Space w="xs" />
+            <Text>for</Text>
+            <Space w="xs" />
+            <Text>{index.token_1.contract_ticker_symbol}</Text>
+          </div>
+        </td>
+        <td>
+          <Text fw="bold" color="green.9" fz="md">
+            {formatter.format(index.total_quote)}
           </Text>
-        </Tooltip>
-      </td>
-      <td>{moment(index.block_signed_at).startOf("hours").fromNow()}</td>
-    </tr>
-  ));
+        </td>
+        <td>
+          <div style={{ display: "flex" }}>
+            <Text>{formatter.format(index.token_0_quote_rate)}</Text>
+            <Space w="xs" />
+            <Text>{index.token_0.contract_ticker_symbol}</Text>
+          </div>
+        </td>
+
+        <td>
+          <div style={{ display: "flex" }}>
+            <Text>{formatter.format(index.token_1_quote_rate)}</Text>
+            <Space w="xs" />
+            <Text>{index.token_1.contract_ticker_symbol}</Text>
+          </div>
+        </td>
+
+        <td>
+          <Tooltip label="Evmos Scan">
+            <Text
+              color="blue"
+              fw="bold"
+              component="a"
+              target="_blank"
+              variant="subtle"
+              href={`https://evm.evmos.org/address/${index.sender_address}`}
+            >
+              {getEllipsisTxt(index.sender_address)}
+            </Text>
+          </Tooltip>
+        </td>
+        <td>{moment(index.block_signed_at).startOf("hours").fromNow()}</td>
+      </tr>
+    ));
 
   return (
     <>

@@ -72,7 +72,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function DiffusionTokenTable({ data }) {
+export default function EvmoswapTokenTable({ data }) {
   const [scrolled, setScrolled] = useState(false);
   const { classes, cx } = useStyles();
 

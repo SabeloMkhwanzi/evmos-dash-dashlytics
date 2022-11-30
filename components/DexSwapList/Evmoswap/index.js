@@ -7,6 +7,9 @@ import moment from "moment";
 import EvmoswapLiquidityChart from "./EvmoswapLiquidityChart";
 import EvmoswapVolumeChart from "./EvmoswapVolumeChart";
 import EvmoswapStats from "./EvmoswapStats";
+import EvmoswapTransactions from "./EvmoswapTransactions";
+import EvmoswapPools from "./EvmoswapPools";
+import EvmoswapTokens from "./EvmoswapTokens";
 
 //API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
@@ -78,6 +81,9 @@ export default function EvmoswapOverview() {
         </SimpleGrid>
       </Flex>
       <EvmoswapStats />
+      <EvmoswapPools />
+      <EvmoswapTokens />
+      <EvmoswapTransactions />
     </>
   );
 }

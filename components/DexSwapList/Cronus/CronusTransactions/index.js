@@ -21,7 +21,7 @@ export default function CronusTransactions() {
 
   const items3 = data?.data?.items;
 
-  console.log(items3);
+  //console.log(items3);
 
   if (isFetching)
     return (
