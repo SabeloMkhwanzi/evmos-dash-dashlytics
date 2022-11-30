@@ -55,48 +55,9 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface NavbarLinkProps {
-  icon: TablerIcon;
-  label: string;
-  active?: boolean;
-  onClick?(): void;
-}
-
-function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
-  const { classes, cx } = useStyles();
-  return (
-    <Tooltip label={label} position="right" transitionDuration={0}>
-      <UnstyledButton
-        onClick={onClick}
-        className={cx(classes.link, { [classes.active]: active })}
-      >
-        <Icon stroke={1.5} />
-      </UnstyledButton>
-    </Tooltip>
-  );
-}
-
-const mockdata = [
-  { icon: IconHome2, label: "Home" },
-  { icon: IconGauge, label: "Dashboard" },
-  { icon: IconDeviceDesktopAnalytics, label: "Analytics" },
-  { icon: IconChartDots, label: "Evmos" },
-  { icon: IconChartBar, label: "Mission Control" },
-  { icon: IconChartInfographic, label: "Assets" },
-  { icon: IconArrowsTransferUp, label: "IBC Transfer" },
-];
-
 export default function SideNavbarHome() {
   const [active, setActive] = useState(2);
   const { classes, cx } = useStyles();
-  const links = mockdata.map((link, index) => (
-    <NavbarLink
-      {...link}
-      key={link.label}
-      active={index === active}
-      onClick={() => setActive(index)}
-    />
-  ));
 
   return (
     <>
@@ -122,7 +83,7 @@ export default function SideNavbarHome() {
                 href="/https://app.evmos.org/"
                 className={cx(classes.link, { [classes.active]: active })}
               >
-                <IconChartDots />
+                <IconGauge />
               </Button>
             </Tooltip>
 

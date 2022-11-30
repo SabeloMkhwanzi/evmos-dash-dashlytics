@@ -27,7 +27,7 @@ export default function EvmoswapStats() {
           top: "0px",
         }}
       >
-        <Loader size="xs" color="grape" variant="bars" />
+        <Loader size="lg" color="blue" variant="bars" />
       </Center>
     );
 
@@ -49,7 +49,6 @@ export default function EvmoswapStats() {
     );
   return (
     <>
-      {" "}
       <EvmoswapStatsOverview data={data} />
     </>
   );

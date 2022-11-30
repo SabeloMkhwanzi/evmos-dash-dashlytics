@@ -33,7 +33,7 @@ export default function CronusPools() {
           top: "0px",
         }}
       >
-        <Loader size="xl" color="grape" variant="bars" />
+        <Loader size="lg" color="blue" variant="bars" />
       </Center>
     );
 

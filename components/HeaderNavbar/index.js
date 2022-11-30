@@ -16,6 +16,7 @@ import { MantineLogo } from "@mantine/ds";
 import { useDisclosure } from "@mantine/hooks";
 import { IconChevronDown } from "@tabler/icons";
 import Link from "next/link";
+import ChainStatus from "../ChainStatus";
 import ColorModeButton from "../ColorModeButton";
 //import ConnectLoginButton from "../ConnectLoginButton";
 
@@ -163,8 +164,8 @@ export default function HeaderNavbar() {
               <MantineLogo size={30} color="violet" />
             </Link>
             <Group className={classes.hiddenMobile}>
+              <ChainStatus />
               <ColorModeButton />
-              {/* <ConnectLoginButton /> */}
             </Group>
 
             <Burger

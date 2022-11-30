@@ -38,3 +38,4 @@ export { default as CronusPoolsOverview } from "./DexSwapList/Cronus/CronusPools
 export { default as CronusPoolsOverviewTable } from "./DexSwapList/Cronus/CronusPools/CronusPoolsOverview/CronusPoolsOverviewTable";
 export { default as CronusTokensOverview } from "./DexSwapList/Cronus/CronusPools/CronusPoolsOverview";
 export { default as CronusTokensOverviewTable } from "./DexSwapList/Cronus/CronusPools/CronusPoolsOverview/CronusPoolsOverviewTable";
+export { default as ChainStatus } from "./ChainStatus";

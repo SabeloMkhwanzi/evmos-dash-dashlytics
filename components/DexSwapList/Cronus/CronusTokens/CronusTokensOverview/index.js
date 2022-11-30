@@ -34,7 +34,7 @@ export default function CronusTokensOverview() {
           top: "0px",
         }}
       >
-        <Loader size="xl" color="grape" variant="bars" />
+        <Loader ssize="lg" color="blue" variant="bars" />
       </Center>
     );
 

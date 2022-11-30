@@ -29,7 +29,7 @@ export default function DiffusionStats() {
           top: "0px",
         }}
       >
-        <Loader size="xs" color="grape" variant="bars" />
+        <Loader size="lg" color="blue" variant="bars" />
       </Center>
     );
 

@@ -48,7 +48,7 @@ export default function CronusOverview() {
           top: "0px",
         }}
       >
-        <Loader size="xl" color="grape" variant="bars" />
+        <Loader size="lg" color="blue" variant="bars" />
       </Center>
     );
 
