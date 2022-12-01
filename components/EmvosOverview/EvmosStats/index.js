@@ -1,8 +1,9 @@
 import React from "react";
 import { useQuery } from "react-query";
 import EvmosStatsOverview from "./EvmosStatsOverview";
-import { Loader, Center, Notification } from "@mantine/core";
+import { Center, Notification } from "@mantine/core";
 import { IconX } from "@tabler/icons";
+import LoaderComp from "../../LoaderComp";
 
 const EvmosContractAddress = "0xd4949664cd82660aae99bedc034a0dea8a0bd517";
 
@@ -20,17 +21,7 @@ export default function EvmosStats() {
 
   if (isFetching)
     return (
-      <Center
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "fixed",
-          left: "0px",
-          top: "0px",
-        }}
-      >
-        <Loader size="lg" color="blue" variant="bars" />
-      </Center>
+   <LoaderComp />
     );
 
   if (error)

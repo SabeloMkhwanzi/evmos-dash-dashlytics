@@ -3,9 +3,8 @@ import {
   Header,
   Group,
   Button,
-  UnstyledButton,
   Divider,
-  Center,
+  Image,
   Box,
   Burger,
   Drawer,
@@ -18,7 +17,7 @@ import { IconChevronDown } from "@tabler/icons";
 import Link from "next/link";
 import ChainStatus from "../ChainStatus";
 import ColorModeButton from "../ColorModeButton";
-//import ConnectLoginButton from "../ConnectLoginButton";
+import Logo from "../Logo";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -92,7 +91,6 @@ const useStyles = createStyles((theme) => ({
 export default function HeaderNavbar() {
   const [drawerOpened, { toggle: toggleDrawer, close: closeDrawer }] =
     useDisclosure(false);
-  const [linksOpened, { toggle: toggleLinks }] = useDisclosure(false);
   const { classes, theme } = useStyles();
 
   return (
@@ -160,9 +158,7 @@ export default function HeaderNavbar() {
                 EvmoSwap
               </Button>
             </Group>
-            <Link href="/">
-              <MantineLogo size={30} color="violet" />
-            </Link>
+             <Logo />
             <Group className={classes.hiddenMobile}>
               <ChainStatus />
               <ColorModeButton />
@@ -191,23 +187,18 @@ export default function HeaderNavbar() {
               color={theme.colorScheme === "dark" ? "dark.5" : "gray.1"}
             />
 
-            <a href="#" className={classes.link}>
+            <Link component="a" href="/" className={classes.link}>
               Home
-            </a>
-            <UnstyledButton className={classes.link} onClick={toggleLinks}>
-              <Center inline>
-                <Box component="span" mr={5}>
-                  Features
-                </Box>
-                <IconChevronDown size={16} color={theme.fn.primaryColor()} />
-              </Center>
-            </UnstyledButton>
-            <a href="#" className={classes.link}>
-              Learn
-            </a>
-            <a href="#" className={classes.link}>
-              Academy
-            </a>
+            </Link>
+                <Link component="a" href="/diffusion" className={classes.link} >
+                  Diffusion
+                </Link>
+            <Link href="/cronus" className={classes.link}>
+              Cronus Finance
+            </Link>
+            <Link href="/evmoswap" className={classes.link}>
+              EvmoSwap
+            </Link>
 
             <Divider
               my="sm"
@@ -216,7 +207,7 @@ export default function HeaderNavbar() {
 
             <Group position="center" grow pb="xl" px="md">
               <ColorModeButton />
-              {/* <ConnectLoginButton /> */}
+             
             </Group>
           </ScrollArea>
         </Drawer>

@@ -1,10 +1,11 @@
-import { createStyles, Anchor, Group, ActionIcon } from "@mantine/core";
+import { createStyles, Anchor, Group, ActionIcon, Image, Center } from "@mantine/core";
 import {
   IconBrandTwitter,
-  IconBrandYoutube,
-  IconBrandInstagram,
+  IconBrandLinkedin,
+  IconBrandGithub,
 } from "@tabler/icons";
-import { MantineLogo } from "@mantine/ds";
+import Link from "next/link";
+import Logo from "../Logo";
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -56,16 +57,18 @@ export default function Footer({ links }: FooterCenteredProps) {
     <div className={classes.footer}>
       <div className={classes.inner}>
         <Group className={classes.links}>{items}</Group>
-        <MantineLogo size={28} />
+        <Center>
+         <Logo />
+        </Center>
         <Group spacing="xs" position="right" noWrap>
-          <ActionIcon size="lg" variant="default" radius="xl">
+          <ActionIcon size="lg" variant="default" radius="xl"  component="a" target='_blank' href="https://github.com/SabeloMkhwanzi/evmos-defi-dashlytics">
+            <IconBrandGithub size={18} stroke={1.5} />
+          </ActionIcon>
+          <ActionIcon size="lg" variant="default" radius="xl" component="a" target='_blank'>
             <IconBrandTwitter size={18} stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size="lg" variant="default" radius="xl">
-            <IconBrandYoutube size={18} stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size="lg" variant="default" radius="xl">
-            <IconBrandInstagram size={18} stroke={1.5} />
+          </ActionIcon>         
+          <ActionIcon component="a" target='_blank' size="lg" variant="default" radius="xl" >
+            <IconBrandLinkedin size={18} stroke={1.5} />
           </ActionIcon>
         </Group>
       </div>

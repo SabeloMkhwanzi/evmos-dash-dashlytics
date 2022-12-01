@@ -3,11 +3,12 @@ import { useQuery } from "react-query";
 import moment from "moment";
 import MarketcapChart from "./MarketcapChart";
 import PriceChart from "./PriceChart";
-import { SimpleGrid, Loader, Center, Notification, Text } from "@mantine/core";
+import { SimpleGrid, Center, Notification, Text } from "@mantine/core";
 import { Flex } from "@chakra-ui/react";
 import TokenPair from "./TokenPair";
 import EvmosStats from "./EvmosStats";
 import { IconX } from "@tabler/icons";
+import LoaderComp from "../LoaderComp";
 
 export default function EmvosOverview() {
   // used React-Query to fetch Covalent API
@@ -38,17 +39,7 @@ export default function EmvosOverview() {
 
   if (isFetching)
     return (
-      <Center
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "fixed",
-          left: "0px",
-          top: "0px",
-        }}
-      >
-        <Loader size="lg" color="blue" variant="bars" />
-      </Center>
+     <LoaderComp />
     );
 
   if (error)

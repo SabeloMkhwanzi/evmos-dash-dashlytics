@@ -1,5 +1,5 @@
 import React from "react";
-import { Loader, Center, Notification, Text, SimpleGrid } from "@mantine/core";
+import {  Center, Notification, Text, SimpleGrid } from "@mantine/core";
 import { Flex } from "@chakra-ui/react";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
@@ -10,6 +10,7 @@ import CronusStats from "./CronusStats";
 import CronusPools from "./CronusPools";
 import CronusTokens from "./CronusTokens";
 import CronusTransactions from "./CronusTransactions";
+import LoaderComp from "../../LoaderComp";
 
 // COVALENT API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
@@ -38,17 +39,7 @@ export default function CronusOverview() {
 
   if (isFetching)
     return (
-      <Center
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "fixed",
-          left: "0px",
-          top: "0px",
-        }}
-      >
-        <Loader size="lg" color="blue" variant="bars" />
-      </Center>
+      <LoaderComp />
     );
 
   if (error)

@@ -1,8 +1,9 @@
 import React from "react";
 import { useQuery } from "react-query";
 import DiffusionStatsOverview from "./DiffusionStatsOverview";
-import { Loader, Center, Notification } from "@mantine/core";
+import {  Center, Notification } from "@mantine/core";
 import { IconX } from "@tabler/icons";
+import LoaderComp from "../../../LoaderComp";
 
 export default function DiffusionStats() {
   // used React-Query to fetch Covalent API
@@ -16,17 +17,7 @@ export default function DiffusionStats() {
 
   if (isFetching)
     return (
-      <Center
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "fixed",
-          left: "0px",
-          top: "0px",
-        }}
-      >
-        <Loader size="lg" color="blue" variant="bars" />
-      </Center>
+       <LoaderComp />
     );
 
   if (error)

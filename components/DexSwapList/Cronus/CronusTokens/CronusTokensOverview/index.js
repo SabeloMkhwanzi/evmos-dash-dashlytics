@@ -1,8 +1,9 @@
 import { Box } from "@chakra-ui/react";
-import { Loader, Center, Notification, Text } from "@mantine/core";
+import {  Center, Notification, Text } from "@mantine/core";
 import CronusTokensOverviewTable from "./CronusTokensOverviewTable";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
+import LoaderComp from "../../../../LoaderComp"
 
 //API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
@@ -25,17 +26,7 @@ export default function CronusTokensOverview() {
 
   if (isFetching)
     return (
-      <Center
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "fixed",
-          left: "0px",
-          top: "0px",
-        }}
-      >
-        <Loader ssize="lg" color="blue" variant="bars" />
-      </Center>
+    <LoaderComp />
     );
 
   if (error)

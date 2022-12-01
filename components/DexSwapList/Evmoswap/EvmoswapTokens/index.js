@@ -1,8 +1,9 @@
 import { Box } from "@chakra-ui/react";
-import { Loader, Center, Notification, Text } from "@mantine/core";
+import { Center, Notification, Text } from "@mantine/core";
 import EvmoswapTokenTable from "./EvmoswapTokenTable";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
+import LoaderComp from "../../../LoaderComp";
 
 //COVALENT API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
@@ -22,17 +23,7 @@ export default function EvmoswapTokens() {
 
   if (isFetching)
     return (
-      <Center
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "fixed",
-          left: "0px",
-          top: "0px",
-        }}
-      >
-        <Loader ssize="lg" color="blue" variant="bars" />
-      </Center>
+      <LoaderComp />
     );
 
   if (error)

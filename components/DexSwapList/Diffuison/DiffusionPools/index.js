@@ -1,10 +1,11 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
-import { Loader, Center, Notification, Text } from "@mantine/core";
+import { Center, Notification, Text } from "@mantine/core";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
 
 import DiffusionPoolTable from "./DiffusionPoolTable";
+import LoaderComp from "../../../LoaderComp";
 
 // COVALENT API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
@@ -22,17 +23,7 @@ export default function DiffusionPools() {
 
   if (isFetching)
     return (
-      <Center
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "fixed",
-          left: "0px",
-          top: "0px",
-        }}
-      >
-        <Loader size="lg" color="blue" variant="bars" />
-      </Center>
+    <LoaderComp />
     );
 
   if (error)
