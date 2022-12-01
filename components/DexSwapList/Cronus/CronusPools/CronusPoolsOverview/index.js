@@ -5,7 +5,7 @@ import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
 import CronusPoolsOverviewTable from "../CronusPoolsOverview/CronusPoolsOverviewTable";
 
-//API Key
+// COVALENT API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
 export default function CronusPoolsOverview() {
@@ -19,10 +19,7 @@ export default function CronusPoolsOverview() {
       return res.json();
     }
   );
-
   const items = data?.data?.items;
-
-  //console.log(items);
 
   if (isFetching)
     return (

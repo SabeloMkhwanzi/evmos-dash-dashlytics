@@ -4,7 +4,7 @@ import EvmoswapTokenTable from "./EvmoswapTokenTable";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
 
-//API Key
+//COVALENT API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
 export default function EvmoswapTokens() {
@@ -16,7 +16,7 @@ export default function EvmoswapTokens() {
     return res.json();
   });
 
-  const items2 = data?.data?.items;
+  const items = data?.data?.items;
 
   //console.log(items2);
 
@@ -56,7 +56,7 @@ export default function EvmoswapTokens() {
     <Box>
       <Box minWidth="1220" maxW="600" justifyItems="center" mx="auto" mb={20}>
         <Text fw={500}>Top Tokens</Text>
-        <EvmoswapTokenTable data={items2} />
+        <EvmoswapTokenTable data={items} />
       </Box>
     </Box>
   );

@@ -4,7 +4,7 @@ import DiffusionTokensOverviewTable from "./DiffusionTokensOverviewTable";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
 
-//API Key
+// COVALENT API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
 export default function DiffusionTokensOverview() {
@@ -20,8 +20,6 @@ export default function DiffusionTokensOverview() {
   );
 
   const items2 = data?.data?.items;
-
-  //console.log(items2);
 
   if (isFetching)
     return (

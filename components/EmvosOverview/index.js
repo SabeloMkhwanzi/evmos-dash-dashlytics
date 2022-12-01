@@ -8,7 +8,6 @@ import { Flex } from "@chakra-ui/react";
 import TokenPair from "./TokenPair";
 import EvmosStats from "./EvmosStats";
 import { IconX } from "@tabler/icons";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 export default function EmvosOverview() {
   // used React-Query to fetch Covalent API

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { AppShell } from "@mantine/core";
 import {
+  DragNdrop,
   Footer,
   HeaderNavbar,
   SideNavbarCustomizableDashboard,
@@ -28,7 +29,7 @@ export default function Home() {
           },
         })}
       >
-        {}
+        <DragNdrop />
       </AppShell>
     </>
   );

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Box } from "@chakra-ui/react";
 import { Loader, Center, Notification, Text, Group } from "@mantine/core";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
 import moment from "moment";
 
-//API Key
+// Covalent API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
 export default function ChainStatus() {
@@ -20,10 +20,7 @@ export default function ChainStatus() {
   const chainStatus = data?.data?.items[25].synced_block_height;
   const blockedSignedAt = data?.data?.items[25].synced_blocked_signed_at;
 
-  //console.log(chainStatus);
-  //console.log(data);
-
-  if (isFetching) return "Loading...";
+  if (isFetching) return (<Center><Loader size="xs" color="green" variant="oval" /></Center>);
 
   if (error)
     return (

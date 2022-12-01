@@ -4,7 +4,6 @@ import {
   Container,
   Paper,
   Space,
-  Stack,
   Text,
   Flex,
   Button,
@@ -40,7 +39,7 @@ const useStyles = createStyles((theme) => ({
     color: "#fff",
     padding: "1rem",
     boxShadow: "15px 30px 40px 5px rgba(0, 0, 0, 0.5)",
-    textAlign: "center",
+    extalign: "center",
   },
 }));
 

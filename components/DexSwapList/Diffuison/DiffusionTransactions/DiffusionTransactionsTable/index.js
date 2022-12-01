@@ -35,7 +35,7 @@ const useStyles = createStyles((theme) => ({
 
   th: {
     padding: "0 !important",
-    textAlign: "right",
+    extalign: "right",
   },
 
   control: {
@@ -85,12 +85,13 @@ export default function DiffusionTransactionsTable({ data }) {
     style: "currency",
     currency: "USD",
   });
-
+ 
+ console.log(data);
   const rows = data
     .slice(0)
     .reverse()
     .map((index) => (
-      <tr key={index.chain_name}>
+      <tr key={index.chain_id}>
         <td>
           <div style={{ display: "flex" }}>
             <Text fw="bold" color="cyan.9" fz="md">

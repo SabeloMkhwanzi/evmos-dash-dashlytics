@@ -4,7 +4,7 @@ import DiffusionTokenTable from "./DiffusionTokenTable";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
 
-//API Key
+// COVALENT API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
 export default function DiffusionTokens() {

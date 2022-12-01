@@ -1,4 +1,3 @@
-export { default as ChakraColorButton } from "./ChakraColorButton";
 export { default as ColorModeButton } from "./ColorModeButton";
 export { default as HeaderNavbar } from "./HeaderNavbar";
 export { default as Footer } from "./Footer";
@@ -56,3 +55,4 @@ export { default as EvmoswapTokenTable } from "./DexSwapList/Evmoswap/EvmoswapTo
 export { default as EvmoswapTokens } from "./DexSwapList/Evmoswap/EvmoswapTokens";
 export { default as EvmoswapTokensOverviewTable } from "./DexSwapList/Evmoswap/EvmoswapTokens/EvmoswapTokensOverview/EvmoswapTokensOverviewTable";
 export { default as SideNavbarCustomizableDashboard } from "./SideNavbarCustomizableDashboard";
+export { default as DragNdrop } from "./DragNdrop";

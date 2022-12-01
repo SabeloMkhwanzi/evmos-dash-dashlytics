@@ -2,16 +2,12 @@ import React, { useState } from "react";
 import {
   createStyles,
   Table,
-  Group,
   Text,
-  ThemeIcon,
   Center,
   Paper,
   ScrollArea,
   TextInput,
-  Avatar,
 } from "@mantine/core";
-import { IconArrowUpRight, IconArrowDownRight } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -37,7 +33,7 @@ const useStyles = createStyles((theme) => ({
 
   th: {
     padding: "0 !important",
-    textAlign: "right",
+    extalign: "right",
   },
 
   control: {

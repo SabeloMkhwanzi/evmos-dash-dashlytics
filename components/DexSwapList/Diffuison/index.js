@@ -11,7 +11,7 @@ import DiffusionTransactions from "./DiffusionTransactions";
 import DiffusionPools from "./DiffusionPools";
 import DiffusionTokens from "./DiffusionTokens";
 
-//API Key
+//COVALENT API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
 export default function DiffusionOverview() {
@@ -22,7 +22,6 @@ export default function DiffusionOverview() {
     );
     return res.json();
   });
-  //console.log(data?.data?.items);
 
   // Chart data for Evmos market_caps
   const DiffusionLiquidity = data?.data?.items[0].liquidity_chart_30d.map(

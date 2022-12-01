@@ -11,7 +11,7 @@ import CronusPools from "./CronusPools";
 import CronusTokens from "./CronusTokens";
 import CronusTransactions from "./CronusTransactions";
 
-//API Key
+// COVALENT API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
 export default function CronusOverview() {
@@ -22,7 +22,6 @@ export default function CronusOverview() {
     );
     return res.json();
   });
-  //console.log(data?.data?.items);
 
   // Chart data for Evmos market_caps
   const CronusLiquidity = data?.data?.items[0].liquidity_chart_30d.map(

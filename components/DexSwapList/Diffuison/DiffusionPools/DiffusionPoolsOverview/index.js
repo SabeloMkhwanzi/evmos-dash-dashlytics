@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Box } from "@chakra-ui/react";
 import { Loader, Center, Notification, Text } from "@mantine/core";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
 import DiffusionPoolsOverviewTable from "./DiffusionPoolsOverviewTable";
 
-//API Key
+//COVALENT API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
 export default function DiffusionPoolsOverview() {
@@ -21,8 +21,6 @@ export default function DiffusionPoolsOverview() {
   );
 
   const items = data?.data?.items;
-
-  //console.log(items);
 
   if (isFetching)
     return (

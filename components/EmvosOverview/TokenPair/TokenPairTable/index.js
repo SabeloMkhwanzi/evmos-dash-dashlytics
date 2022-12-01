@@ -11,7 +11,6 @@ import {
   Paper,
   Text,
 } from "@mantine/core";
-import { keys } from "@mantine/utils";
 import {
   IconSelector,
   IconChevronDown,
@@ -19,6 +18,7 @@ import {
   IconSearch,
 } from "@tabler/icons";
 import { HStack } from "@chakra-ui/react";
+import { v1 as uuidv1 } from 'uuid'
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -44,7 +44,7 @@ const useStyles = createStyles((theme) => ({
 
   th: {
     padding: "0 !important",
-    textAlign: "right",
+    extalign: "right",
   },
 
   control: {
@@ -110,7 +110,7 @@ export default function TokenPairTable({ data }) {
   var numbro = require("numbro");
 
   const rows = sortedData?.pairs.map((row) => (
-    <tr key={row.name}>
+    <tr key={row.url}>
       <td>
         <SimpleGrid cols={3} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
           <Text fontWeight="semibold">{row.baseToken.symbol}</Text>
@@ -122,7 +122,7 @@ export default function TokenPairTable({ data }) {
       </td>
       <td>
         <HStack>
-          <Text textAlign="centre" fontWeight="semibold">
+          <Text extalign="centre" fontWeight="semibold">
             {numbro(row.priceUsd).formatCurrency({
               average: true,
               mantissa: 2,
@@ -135,7 +135,7 @@ export default function TokenPairTable({ data }) {
         </HStack>
       </td>
       <td>
-        <Text textAlign="centre" fontWeight="semibold">
+        <Text extalign="centre" fontWeight="semibold">
           {numbro(row.volume.h24).formatCurrency({
             average: true,
             mantissa: 2,
@@ -144,7 +144,7 @@ export default function TokenPairTable({ data }) {
         </Text>
       </td>
       <td>
-        <Text textAlign="centre" fontWeight="semibold">
+        <Text extalign="centre" fontWeight="semibold">
           {numbro(row.liquidity.usd).formatCurrency({
             average: true,
             mantissa: 2,
@@ -153,7 +153,7 @@ export default function TokenPairTable({ data }) {
         </Text>
       </td>
       <td>
-        <Text textAlign="centre" fontWeight="semibold">
+        <Text extalign="centre" fontWeight="semibold">
           {numbro(row.fdv).formatCurrency({
             average: true,
             mantissa: 2,

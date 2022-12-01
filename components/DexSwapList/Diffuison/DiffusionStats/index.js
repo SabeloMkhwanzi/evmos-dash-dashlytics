@@ -4,8 +4,6 @@ import DiffusionStatsOverview from "./DiffusionStatsOverview";
 import { Loader, Center, Notification } from "@mantine/core";
 import { IconX } from "@tabler/icons";
 
-//const DiffusionContractAddress = "0x3f75ceabcdfed1aca03257dc6bdc0408e2b4b026";
-
 export default function DiffusionStats() {
   // used React-Query to fetch Covalent API
   const { data, error, isFetching } = useQuery(["diffusionStats"], async () => {
@@ -15,8 +13,6 @@ export default function DiffusionStats() {
     );
     return res.json();
   });
-
-  //console.log(data);
 
   if (isFetching)
     return (

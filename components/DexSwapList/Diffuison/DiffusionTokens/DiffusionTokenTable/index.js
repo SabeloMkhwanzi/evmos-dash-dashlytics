@@ -37,7 +37,7 @@ const useStyles = createStyles((theme) => ({
 
   th: {
     padding: "0 !important",
-    textAlign: "right",
+    extalign: "right",
   },
 
   control: {

@@ -11,7 +11,7 @@ import EvmoswapTransactions from "./EvmoswapTransactions";
 import EvmoswapPools from "./EvmoswapPools";
 import EvmoswapTokens from "./EvmoswapTokens";
 
-//API Key
+//COVALENT API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
 export default function EvmoswapOverview() {

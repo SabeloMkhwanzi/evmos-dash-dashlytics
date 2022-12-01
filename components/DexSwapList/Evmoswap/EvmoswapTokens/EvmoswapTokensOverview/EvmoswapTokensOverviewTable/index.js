@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import {
   createStyles,
   Table,
-  Group,
   Text,
-  ThemeIcon,
-  Center,
   Paper,
   ScrollArea,
   TextInput,
-  Avatar,
+  Center
 } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
@@ -36,7 +33,7 @@ const useStyles = createStyles((theme) => ({
 
   th: {
     padding: "0 !important",
-    textAlign: "right",
+    extalign: "right",
   },
 
   control: {

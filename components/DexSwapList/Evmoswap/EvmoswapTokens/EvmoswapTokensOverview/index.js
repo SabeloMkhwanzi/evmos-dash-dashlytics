@@ -4,7 +4,7 @@ import EvmoswapTokensOverviewTable from "./EvmoswapTokensOverviewTable";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
 
-//API Key
+//COVALENT API Key
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
 export default function EvmoswapTokensOverview() {
@@ -19,9 +19,7 @@ export default function EvmoswapTokensOverview() {
     }
   );
 
-  const items2 = data?.data?.items;
-
-  //console.log(items2);
+  const items = data?.data?.items;
 
   if (isFetching)
     return (
@@ -59,7 +57,7 @@ export default function EvmoswapTokensOverview() {
     <Box>
       <Box minWidth="1220" maxW="600" justifyItems="center" mx="auto" mb={20}>
         <Text fw={500}>Top Tokens</Text>
-        <EvmoswapTokensOverviewTable data={items2} />
+        <EvmoswapTokensOverviewTable data={items} />
       </Box>
     </Box>
   );
