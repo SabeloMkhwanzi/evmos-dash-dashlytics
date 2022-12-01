@@ -3,7 +3,6 @@ export { default as Logo } from "./Logo";
 export { default as ColorModeButton } from "./ColorModeButton";
 export { default as HeaderNavbar } from "./HeaderNavbar";
 export { default as Footer } from "./Footer";
-export { default as ConnectLoginButton } from "./ConnectLoginButton";
 export { default as Cronus } from "./DexSwapList/Cronus";
 export { default as CronusLiquidityChart } from "./DexSwapList/Cronus/CronusLiquidityChart";
 export { default as CronusVolumeChart } from "./DexSwapList/Cronus/CronusVolumeChart";
