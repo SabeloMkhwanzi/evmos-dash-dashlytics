@@ -69,15 +69,34 @@ export default function SideNavbarHome() {
               <Button
                 component="a"
                 target="_blank"
-                href="/https://evmos.org/"
+                href="https://evmos.org/"
                 color="gray"
                 className={cx(classes.link, { [classes.active]: active })}
               >
                 <IconChartDots />
               </Button>
             </Tooltip>
-
-            <Tooltip
+            <Tooltip label="Evmos App" position="right" transitionDuration={0}>
+              <Button
+                component="a"
+                target="_blank"
+                href="https://app.evmos.org/"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconGauge />
+              </Button>
+            </Tooltip>
+            <Tooltip label="Evmso Doc" position="right" transitionDuration={0}>
+              <Button
+                component="a"
+                target="_blank"
+                href="https://docs.evmos.org/"
+                className={cx(classes.link, { [classes.active]: active })}
+              >
+                <IconBook2 />
+              </Button>
+            </Tooltip>
+                 <Tooltip
               label="Customizable Dashboard"
               position="right"
               transitionDuration={0}
@@ -88,26 +107,6 @@ export default function SideNavbarHome() {
                 className={cx(classes.link, { [classes.active]: active })}
               >
                 <IconTemplate />
-              </Button>
-            </Tooltip>
-            <Tooltip label="Evmos App" position="right" transitionDuration={0}>
-              <Button
-                component="a"
-                target="_blank"
-                href="/https://app.evmos.org/"
-                className={cx(classes.link, { [classes.active]: active })}
-              >
-                <IconGauge />
-              </Button>
-            </Tooltip>
-            <Tooltip label="Evmso Doc" position="right" transitionDuration={0}>
-              <Button
-                component="a"
-                target="_blank"
-                href="/https://docs.evmos.org/"
-                className={cx(classes.link, { [classes.active]: active })}
-              >
-                <IconBook2 />
               </Button>
             </Tooltip>
           </Stack>
