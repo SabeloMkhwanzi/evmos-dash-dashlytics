@@ -23,7 +23,9 @@ Provides visual analytics front-end with rich information about the health and p
 - For any (DEX) decentralized exchange protocol runing on XY=K engine to be successful, it needs a visual analytics front-end dashboard to provide users with rich information about the health and performance of that ecosystem. Emvos is a fast growing ecosystem with (DEX) decentralized exchange built on the ecosystem, thus we approach to solve the problem by providing  [EddAlytics](https://eddalytics.vercel.app/) - Evmos Dex Dashboard Analytics.
 
 ## Project Solution 
-- Introducing Covalent API So, they built XY=K: the suite of Class B, generalized UniswapV2-like endpoints in their unified API for exchange on various blockchains. They introduced these endpoints to provide you with the richest and most robust on-chain DEX data and allow you to retrieve all the required data for any UniswapV2-like protocol (such as SpiritSwap and SushiSwap) on a variety of blockchains, simply by providing the name of the exchange and the correct chainID for the blockchain. As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes.
+- Introducing [Covalent](https://www.covalenthq.com/), they built XY=K: the suite of Class B, generalized UniswapV2-like endpoints in their unified API for exchange on various blockchains. They introduced these endpoints to provide you with the richest and most robust on-chain DEX data and allow you to retrieve all the required data for any UniswapV2-like protocol (such as SpiritSwap and SushiSwap) on a variety of blockchains, simply by providing the name of the exchange and the correct chainID for the blockchain. As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes - Awesome right! 😊
+
+### Project Stack
 
 
 
