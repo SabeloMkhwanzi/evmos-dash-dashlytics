@@ -39,7 +39,7 @@ Providing a visual analytics front-end with rich information about the health an
 ## Table of Contents
 - [Installing](#installing)
 - [How to use](#how-to-use)
-  - [Get information about chain statuses](#get-information-about-chain-statuses)
+  - [Get information about chain statuse and blocked Signeds](#Get-information-about-chain-statuse-and-blocked-Signed)
   - [Get 30d volume and liquidity as a timeseries chart](#Get-30d-volume-and-liquidity-as-a-timeseries-chart)
   - [Calculating amount of tokens to send](#calculating-amount-of-tokens-to-send)
   - [Getting the amount of gas fee](#getting-the-amount-of-gas-fee)
@@ -77,7 +77,7 @@ npm run dev
 
 ## How to use 
 
-### Get information about chain statuse
+### Get information about chain statuse and blocked Signed
 
 API method `GET/v1/chains/status/` can be used to get information about chain statuse and blocked Signed at.
  - note: `const chainStatus = data?.data?.items[25].synced_block_height` at `[25]` we the get the chain id of Evmos in array of objects 😊
