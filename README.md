@@ -253,9 +253,6 @@ export default function EvmoswapTransactions() {
 }
 ```
 
-
-## Evmos Covalent #OneMillionWallets Hackathon
-
 #### GitHub Repository: https://github.com/SabeloMkhwanzi/eddalytics
 
 #### Demo video: []()
