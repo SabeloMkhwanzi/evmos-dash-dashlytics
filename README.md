@@ -40,7 +40,7 @@ Providing a visual analytics front-end with rich information about the health an
 - [Installing](#installing)
 - [How to use](#how-to-use)
   - [Get information about chain statuses](#get-information-about-chain-statuses)
-  - [Calculating amount of tokens to be received after fee](#calculating-amount-of-tokens-to-be-received-after-fee)
+  - [Get 30d volume and liquidity as a timeseries chart](#Get-30d-volume-and-liquidity-as-a-timeseries-chart)
   - [Calculating amount of tokens to send](#calculating-amount-of-tokens-to-send)
   - [Getting the amount of gas fee](#getting-the-amount-of-gas-fee)
   - [Getting the average transfer time](#getting-the-average-transfer-time)
@@ -93,25 +93,56 @@ export default function ChainStatus() {
     );
     return res.json();
   });
-
   const chainStatus = data?.data?.items[25].synced_block_height;
   const blockedSignedAt = data?.data?.items[25].synced_blocked_signed_at;
+  
+     if (isFetching)
+    return "Loading..."
+
+  if (error) "error + messaage"
+    
 }
 
 
 ```
 
-### Calculating amount of tokens to be received after fee
+### Get 30d volume and liquidity as a timeseries chart
 
-SDK method `getAmountToBeReceived` can be used to calculate the amount of tokens the receiving party will get after
-applying the bridging fee.
+API method `/v1/9001/xy=k/cronus/ecosystem/?&key=${APIKey}`can be used to get information on volume 7-30d & liquidity 7-30d
+- notes: we simply by providing the name of the exchange `/cronus/` and the correct chainID `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, cool hey 😊
 
 ```js
-const amountToBeReceived = await sdk.getAmountToBeReceived(
-  amountToSend,
-  sourceTokenInfo,
-  destinationTokenInfo
-);
+const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
+
+export default function CronusOverview() {
+  // used React-Query to fetch Covalent API
+  const { data, error, isFetching } = useQuery(["cronusEco"], async () => {
+    const res = await fetch(
+      `https://api.covalenthq.com/v1/9001/xy=k/cronus/ecosystem/?&key=${APIKey}`
+    );
+    return res.json();
+  });
+
+  // Chart data for Evmos liquidity_chart_30d
+  const CronusLiquidity = data?.data?.items[0].liquidity_chart_30d.map(
+    (item) => ({
+      X: moment(item.dt).format("MMM Do"),
+      Y: item.liquidity_quote,
+    })
+  );
+
+// Chart data for Evmos volume_chart_30d
+  const CronusVolume = data?.data?.items[0].volume_chart_30d.map((item) => ({
+    X: moment(item.dt).format("MMM Do"),
+    Y: item.volume_quote,
+  }));
+  
+   if (isFetching)
+    return "Loading..."
+
+  if (error) "error + messaage"
+     
+  }
 ```
 
 ### Calculating amount of tokens to send
