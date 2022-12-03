@@ -42,9 +42,9 @@ Providing a visual analytics front-end with rich information about the health an
 - [Installing](#installing)
 - [How to use](#how-to-use)
   - [Get information about chain statuse and blocked Signeds](#Get-information-about-chain-statuse-and-blocked-Signed)
-  - [Get 30d volume and liquidity as a timeseries chart](#Get-30d-volume-and-liquidity-as-a-timeseries-chart)
-  - [Get Top tokens by price, volume, liquidity](#Get-Top-tokens-by-price,-volume,-liquidity)
-  - [Get Top pools by price, volume, liquidity](#Get-Top-pools-by-price,-volume,-liquidity)
+  - [Get XY=K 30d volume and liquidity as a timeseries chart](#Get-XY=K-30d-volume-and-liquidity-as-a-timeseries-chart)
+  - [Get XY=K Top tokens by price, volume, liquidity](#Get-XY=K-Top-tokens-by-price,-volume,-liquidityy)
+  - [Get XY=K Top pools by price, volume, liquidity](#Get-XY=K-Top-pools-by-price,-volume,-liquidity)
   - [Get XY=K transactions for account address](#Get-XY=K-transactions-for-account-address)
 - [Thank you](#thank-you)
 
