@@ -1,3 +1,5 @@
+# Evmos Covalent #OneMillionWallets Hackathon
+
 <h1 align="center">
    <b>
         <a href="https://eddalytics.vercel.app/"><img src="https://github.com/SabeloMkhwanzi/evmos-defi-dashlytics/blob/main/public/eddalytics-logo4.png" /></a><br>
@@ -246,11 +248,12 @@ export default function EvmoswapTransactions() {
 ```
 
 
-## Semver
+## Evmos Covalent #OneMillionWallets Hackathon
 
-Until bridge-core-sdk reaches a `1.0.0` release, breaking changes will be released with a new minor version. For
-example `0.3.1`, and `0.3.4` will have the same API, but `0.4.0` will have breaking changes.
+#### GitHub Repository: https://github.com/SabeloMkhwanzi/evmos-defi-dashlytics
 
+#### Demo video: []()
 
+#### Project Start: Date: Nov 07, 2022 - Dec 4, 2022
 
-# Evmos Dex Dashborad Analytics
+Happy Haching 😊
