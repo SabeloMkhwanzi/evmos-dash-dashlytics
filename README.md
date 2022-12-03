@@ -41,7 +41,7 @@ Providing a visual analytics front-end with rich information about the health an
 - [How to use](#how-to-use)
   - [Get information about chain statuse and blocked Signeds](#Get-information-about-chain-statuse-and-blocked-Signed)
   - [Get 30d volume and liquidity as a timeseries chart](#Get-30d-volume-and-liquidity-as-a-timeseries-chart)
-  - [Calculating amount of tokens to send](#calculating-amount-of-tokens-to-send)
+  - [Get Top tokens by price, volume, liquidity](#Get-Top-tokens-by-price,-volume,-liquidity)
   - [Getting the amount of gas fee](#getting-the-amount-of-gas-fee)
   - [Getting the average transfer time](#getting-the-average-transfer-time)
 - [Semver](#semver)
@@ -109,7 +109,7 @@ export default function ChainStatus() {
 ### Get 30d volume and liquidity as a timeseries chart
 
 API method `/v1/9001/xy=k/cronus/ecosystem/?&key=${APIKey}`can be used to get information on volume 7-30d & liquidity 7-30d
-- notes: we simply by providing the name of the exchange `/cronus/` and the correct chainID `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, cool hey 😊
+- notes: we simply by providing the name of the exchange `/cronus/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, cool hey 😊
 
 ```js
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
@@ -145,22 +145,36 @@ export default function CronusOverview() {
   }
 ```
 
-### Calculating amount of tokens to send
+### Get Top tokens by price, volume, liquidity
 
-SDK method `getAmountToSend` can be used to calculate the amount of tokens to send based on the required amount of
-tokens the receiving party should get.
+API method `/9001/xy=k/diffusion/tokens` can be used to get information on tokens by price, volume, liquidity, 
+- notes: we simply by providing the name of the exchange `/diffusion/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Amazing right😊
 
 ```js
-const amountToSend = await sdk.getAmountToSend(
-  amountToBeReceived,
-  sourceTokenInfo,
-  destinationTokenInfo
-);
+const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
+
+export default function CronusTokens() {
+  // used React-Query to fetch Covalent API
+  const { data, error, isFetching } = useQuery(["diffusionTokens"], async () => {
+    const res = await fetch(
+      `https://api.covalenthq.com/v1/9001/xy=k/diffusion/tokens/?key=${APIKey}`
+    );
+    return res.json();
+  });
+
+  const items2 = data?.data?.items;
+  
+    if (isFetching)
+    return "Loading..."
+
+  if (error) "error + messaage"
+   
+}
 ```
 
 ### Getting the amount of gas fee
 
-SDK method `getTxCost` can be used to fetch information about the amount of gas fee required to complete the transfer on
+API method `getTxCost` can be used to fetch information about the amount of gas fee required to complete the transfer on
 the destination chain. Gas fee is paid during the [send](#32-send-tokens) operation in the source chain currency.
 
 ```js
