@@ -43,8 +43,8 @@ Providing a visual analytics front-end with rich information about the health an
 - [How to use](#how-to-use)
   - [Get information about chain statuse and blocked Signeds](#Get-information-about-chain-statuse-and-blocked-Signed)
   - [Get 30d volume and liquidity as a timeseries chart](#Get-30d-volume-and-liquidity-as-a-timeseries-chart)
-  - [Get Top tokens by price, volume, liquidity](#Get-Top-tokens-by-price,-volume,-liquidityy)
-  - [Get Top pools by price, volume, liquidity](#Get-Top-pools-by-price,-volume,-liquidity)
+  - [Get Top tokens by price volume liquidity](#Get-Top-tokens-by-price-volume-liquidityy)
+  - [Get Top pools by price volume liquidity](#Get-Top-pools-by-price-volume-liquidity)
   - [Get transactions for account address](#Get-transactions-for-account-address)
 - [Thank you](#thank-you)
 
@@ -147,7 +147,7 @@ export default function CronusOverview() {
   }
 ```
 
-### Get Top tokens by price, volume, liquidity
+### Get Top tokens by price volume liquidity
 
 API XY=K method `/9001/xy=k/diffusion/tokens` can be used to get information on tokens by price, volume, liquidity, 
 - notes: we simply by providing the name of the exchange `/diffusion/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Amazing right😊
@@ -174,7 +174,7 @@ export default function CronusTokens() {
 }
 ```
 
-### Get Top pools by price, volume, liquidity
+### Get Top pools by price volume liquidity
 
 API method `/9001/xy=k/evmoswap/pools` can be used to get information on tokens by price, volume, liquidity, 
 - notes: we simply by providing the name of the exchange `/evmoswap/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Super great!😊
