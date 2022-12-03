@@ -39,11 +39,11 @@ Providing a visual analytics front-end with rich information about the health an
 ## Table of Contents
 - [Installing](#installing)
 - [How to use](#how-to-use)
-  - [Get information about chain statuse and blocked Signeds](#Get-information-about-chain-statuse-and-blocked-Signed)
-  - [Get 30d volume and liquidity as a timeseries chart](#Get-30d-volume-and-liquidity-as-a-timeseries-chart)
-  - [Get Top tokens by price, volume, liquidity](#Get-Top-tokens-by-price,-volume,-liquidity)
-  - [Get Top pools by price, volume, liquidity](#Get-Top-pools-by-price,-volume,-liquidity)
-  - [Getting the average transfer time](#getting-the-average-transfer-time)
+  - [1. Get information about chain statuse and blocked Signeds](#1.-Get-information-about-chain-statuse-and-blocked-Signed)
+  - [2. Get 30d volume and liquidity as a timeseries chart](#2.-Get-30d-volume-and-liquidity-as-a-timeseries-chart)
+  - [3. Get Top tokens by price, volume, liquidity](#3.-Get-Top-tokens-by-price,-volume,-liquidity)
+  - [4. Get Top pools by price, volume, liquidity](#4.-Get-Top-pools-by-price,-volume,-liquidity)
+  - [5. Get XY=K transactions for account address](#5.-Get-XY=K-transactions-for-account-address)
 - [Semver](#semver)
 
 ## Installing
@@ -77,7 +77,7 @@ npm run dev
 
 ## How to use 
 
-### Get information about chain statuse and blocked Signed
+### 1. Get information about chain statuse and blocked Signed
 
 API method `GET/v1/chains/status/` can be used to get information about chain statuse and blocked Signed at.
  - note: `const chainStatus = data?.data?.items[25].synced_block_height` at `[25]` we the get the chain id of Evmos in array of objects 😊
@@ -106,9 +106,9 @@ export default function ChainStatus() {
 
 ```
 
-### Get 30d volume and liquidity as a timeseries chart
+### 2. Get XY=K 30d volume and liquidity as a timeseries chart
 
-API method `/v1/9001/xy=k/cronus/ecosystem/?&key=${APIKey}`can be used to get information on volume 7-30d & liquidity 7-30d
+API XY=K method `/v1/9001/xy=k/cronus/ecosystem/?&key=${APIKey}`can be used to get information on volume 7-30d & liquidity 7-30d
 - notes: we simply by providing the name of the exchange `/cronus/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, cool hey 😊
 
 ```js
@@ -145,9 +145,9 @@ export default function CronusOverview() {
   }
 ```
 
-### Get Top tokens by price, volume, liquidity
+### 3. Get XY=K Top tokens by price, volume, liquidity
 
-API method `/9001/xy=k/diffusion/tokens` can be used to get information on tokens by price, volume, liquidity, 
+API XY=K method `/9001/xy=k/diffusion/tokens` can be used to get information on tokens by price, volume, liquidity, 
 - notes: we simply by providing the name of the exchange `/diffusion/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Amazing right😊
 
 ```js
@@ -172,7 +172,7 @@ export default function CronusTokens() {
 }
 ```
 
-### Get Top pools by price, volume, liquidity
+### 4. Get XY=K Top pools by price, volume, liquidity
 
 API method `/9001/xy=k/evmoswap/pools` can be used to get information on tokens by price, volume, liquidity, 
 - notes: we simply by providing the name of the exchange `/evmoswap/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Super great!😊
@@ -197,20 +197,54 @@ export default function EvmoswapPools() {
   if (error) "error + messaage"
      
 );
+}
 ```
 
-### Getting the average transfer time
+### 5. Get XY=K transactions for account address
 
-SDK method `getAverageTransferTime` can be used to get the average time in ms it takes to complete a transfer for a
-given combination of tokens and messenger.
+API XY=K method `/v1/9001/xy=k/evmoswap/tokens/address/0x181c262b973b22c307c646a67f64b76410d19b6b/transactions/` can be used to get transactions information on account address, also includes type of transactions eg. SWAP, ADD LIQUIDITY, REMOVE LIQUIDITY. 
+- notes: we simply by providing the name of the exchange `/evmoswap/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, and you will note that here we have account an address which represent evmoswap address - which will help us get all the transactions on this address. Lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Nice!😊
+- Development TIP! 💁‍♂️: when mapping through the data it comes in a decending list of array from old to new (old information on top of list and new information on the bottom), suggest you Use map() on an Array in Reverse Order in JS :
+```js
+const arr = ['a', 'b', 'c'];
+
+const mapReverse1 = arr
+  .slice(0)
+  .reverse()
+  .map(element => {
+    return element;
+  });
+
+console.log(mapReverse1); // 👉️ ['c', 'b', 'a']
+
+```
+
 
 ```js
-const transferTimeMs = sdk.getAverageTransferTime(
-  sourceTokenInfo,
-  destinationTokenInfo,
-  Messenger.ALLBRIDGE
-);
+const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
+
+export default function EvmoswapTransactions() {
+  // used React-Query to fetch Covalent API
+  const { data, error, isFetching } = useQuery(
+    ["evmoswapTransactions"],
+    async () => {
+      const res = await fetch(
+        `https://api.covalenthq.com/v1/9001/xy=k/evmoswap/tokens/address/0x181c262b973b22c307c646a67f64b76410d19b6b/transactions/?key=${APIKey}`
+      );
+      return res.json();
+    }
+  );
+
+  const items = data?.data?.items;
+  
+   if (isFetching)
+    return "Loading..."
+
+  if (error) "error + messaage"
+     
+}
 ```
+
 
 ## Semver
 
