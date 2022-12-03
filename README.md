@@ -59,7 +59,7 @@ Providing a visual analytics front-end with rich information about the health an
 1. clone the repo with the following git command:
 
 ```bash
-git clone https://github.com/SabeloMkhwanzi/Gigiblock-social-hour-web3
+git clone https://github.com/SabeloMkhwanzi/eddalytics
 ```
 
 2. open a terminal in the root directory of the project and run:
@@ -256,7 +256,7 @@ export default function EvmoswapTransactions() {
 
 ## Evmos Covalent #OneMillionWallets Hackathon
 
-#### GitHub Repository: https://github.com/SabeloMkhwanzi/evmos-defi-dashlytics
+#### GitHub Repository: https://github.com/SabeloMkhwanzi/eddalytics
 
 #### Demo video: []()
 
