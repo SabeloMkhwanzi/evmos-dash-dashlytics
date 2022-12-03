@@ -1,10 +1,10 @@
-import { createStyles, Anchor, Group, ActionIcon, Image, Center } from "@mantine/core";
+import { createStyles, Anchor, Group, ActionIcon, Center } from "@mantine/core";
 import {
   IconBrandTwitter,
-  IconBrandLinkedin,
+  //IconBrandLinkedin,
   IconBrandGithub,
 } from "@tabler/icons";
-import Link from "next/link";
+
 import Logo from "../Logo";
 
 const useStyles = createStyles((theme) => ({
@@ -58,18 +58,38 @@ export default function Footer({ links }: FooterCenteredProps) {
       <div className={classes.inner}>
         <Group className={classes.links}>{items}</Group>
         <Center>
-         <Logo />
+          <Logo />
         </Center>
         <Group spacing="xs" position="right" noWrap>
-          <ActionIcon size="lg" variant="default" radius="xl"  component="a" target='_blank' href="https://github.com/SabeloMkhwanzi/evmos-defi-dashlytics">
+          <ActionIcon
+            size="lg"
+            variant="default"
+            radius="xl"
+            component="a"
+            target="_blank"
+            href="https://github.com/SabeloMkhwanzi/evmos-defi-dashlytics"
+          >
             <IconBrandGithub size={18} stroke={1.5} />
           </ActionIcon>
-          <ActionIcon size="lg" variant="default" radius="xl" component="a" target='_blank'>
+          <ActionIcon
+            size="lg"
+            variant="default"
+            radius="xl"
+            component="a"
+            target="_blank"
+            href="https://twitter.com/eddalytic"
+          >
             <IconBrandTwitter size={18} stroke={1.5} />
-          </ActionIcon>         
-          <ActionIcon component="a" target='_blank' size="lg" variant="default" radius="xl" >
-            <IconBrandLinkedin size={18} stroke={1.5} />
           </ActionIcon>
+          {/* <ActionIcon
+            component="a"
+            target="_blank"
+            size="lg"
+            variant="default"
+            radius="xl"
+          >
+            <IconBrandLinkedin size={18} stroke={1.5} />
+          </ActionIcon> */}
         </Group>
       </div>
     </div>

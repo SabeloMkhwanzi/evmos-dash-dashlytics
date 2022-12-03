@@ -1,5 +1,5 @@
 import React from "react";
-import {  Center, Notification, Text, SimpleGrid } from "@mantine/core";
+import { Center, Notification, Text, SimpleGrid } from "@mantine/core";
 import { Flex } from "@chakra-ui/react";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
@@ -24,7 +24,7 @@ export default function CronusOverview() {
     return res.json();
   });
 
-  // Chart data for Evmos market_caps
+  // Chart data for Evmos liquidity_chart_30d
   const CronusLiquidity = data?.data?.items[0].liquidity_chart_30d.map(
     (item) => ({
       X: moment(item.dt).format("MMM Do"),
@@ -37,10 +37,7 @@ export default function CronusOverview() {
     Y: item.volume_quote,
   }));
 
-  if (isFetching)
-    return (
-      <LoaderComp />
-    );
+  if (isFetching) return <LoaderComp />;
 
   if (error)
     return (
