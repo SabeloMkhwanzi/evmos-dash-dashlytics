@@ -12,7 +12,7 @@
 
 # EddAlytics - Evmos Dex Dashboard Analytics
 
-Provides visual analytics front-end with rich information about the health and performance of Dex on Evmos ecosystem - Powered by Evmos x Covalent. 
+Providing a visual analytics front-end with rich information about the health and performance of Dex on Evmos ecosystem - Powered by Evmos x Covalent. 
 
 ### Intro
 - Web3 has changed the way we can interact with money by introducing Decentralized finance (DEFI). Decentralized finance provides users with a range of financial services similar to traditional financial industries such as banking, borrowing, insurance, and trading without the need to rely on centralized entities. (DEX) decentralized exchange is one of the popular financial services emerging on the web3 ecosystem, a DEX is an exchange where users trade directly from their own wallets, where you can pay money from one currency to buy money for another.  
@@ -39,17 +39,7 @@ Provides visual analytics front-end with rich information about the health and p
 ## Table of Contents
 - [Installing](#installing)
 - [How to use](#how-to-use)
-  - [1. Initialize SDK instance](#1-initialize-sdk-instance)
-  - [2. Get the list of supported tokens](#2-get-the-list-of-supported-tokens)
-  - [3.1 Approve the transfer of tokens](#31-approve-the-transfer-of-tokens)
-  - [3.2 Send Tokens](#32-send-tokens)
-  - [Full example](#full-example)
-- [Other operations](#other-operations)
-  - [Transaction builder](#transaction-builder)
-    - [Approve Transaction](#approve-transaction)
-    - [Send Transaction](#send-transaction)
-      - [Solana Blockchain](#solana-blockchain)
-  - [Get information about sent transaction](#get-information-about-sent-transaction)
+  - [Get information about chain statuses](#get-information-about-chain-statuses)
   - [Calculating amount of tokens to be received after fee](#calculating-amount-of-tokens-to-be-received-after-fee)
   - [Calculating amount of tokens to send](#calculating-amount-of-tokens-to-send)
   - [Getting the amount of gas fee](#getting-the-amount-of-gas-fee)
@@ -58,167 +48,57 @@ Provides visual analytics front-end with rich information about the health and p
 
 ## Installing
 
+1. clone the repo with the following git command:
+
 ```bash
-$ npm install @allbridge/bridge-core-sdk
+git clone https://github.com/SabeloMkhwanzi/Gigiblock-social-hour-web3
 ```
 
-## How to use
+2. open a terminal in the root directory of the project and run:
 
-### 1. Initialize SDK instance
-
-```js
-const AllbridgeCoreSdk = require('@allbridge/allbridge-core-sdk');
-const sdk = new AllbridgeCoreSdk();
+```bash
+npm install
 ```
 
-### 2. Get the list of supported tokens
+to install all the package dependencies for the project
 
-```js
-const supportedChains = await sdk.chainDetailsMap();
-// extract information about ETH chain
-const {bridgeAddress, tokens, chainId, name} = supportedChains[ChainSymbol.ETH];
-// Choose one of the tokens supported on ETH
-const usdtOnEthTokenInfo = tokens.find(tokenInfo => tokenInfo.symbol === 'USDT');
+Create a .env.local file in the root folder and populate it with the following variables, Get Api a key from [Covalent](https://www.covalenthq.com/)
+
+```bash
+NEXT_PUBLIC_COVALENTKEY=
 ```
 
-### 3.1 Approve the transfer of tokens
 
-Before sending tokens the bridge has to be authorized to use user's tokens. This is done by calling the `approve` method
-on SDK instance.
+Finally, run the development server:
 
-```js
-const response = await sdk.approve(web3, {
-  tokenAddress: tokenAddress,
-  owner: senderAddress,
-  spender: poolAddress,
-});
+```bash
+npm run dev
 ```
 
-**TIP:** To interact with the **Tron** blockchain: </br>
-use ```tronWeb``` instead of ```web3```
+## How to use 
 
-### 3.2 Send Tokens
+### Get information about chain statuse
 
-Initiate the transfer of tokens with `send` method on SDK instance.
-
-```js
-await sdk.send(web3, {
-  amount: '1.01',
-  fromAccountAddress: senderAddress,
-  sourceChainToken: usdtOnEthTokenInfo,
-  toAccountAddress: recipientAddress,
-  destinationChainToken: usdtOnTrxTokenInfo,
-  messenger: Messenger.ALLBRIDGE,
-});
-```
-
-**TIP:** To interact with the **Tron** blockchain: </br>
-use ```tronWeb``` instead of ```web3```
-
-### Full example
-
-Swap BUSD on BSC chain to USDT on TRX chain
+API method `GET/v1/chains/status/` can be used to get information about chain statuse and blocked Signed at.
+ - note: `const chainStatus = data?.data?.items[25].synced_block_height` at `[25]` we the get the chain id of Evmos in array of objects 😊
 
 ```js
-const {
-  AllbridgeCoreSdk,
-  ChainSymbol,
-  Messenger,
-} = require("@allbridge/bridge-core-sdk");
-const Web3 = require("web3");
-require("dotenv").config();
+const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
 
-async function runExample() {
-  // sender address
-  const fromAddress = '0x01234567890abcdef01234567890abcdef012345';
-  // recipient address
-  const toAddress = 'AbcDefGHIJklmNoPQRStuvwXyz1aBcDefG';
-
-  // configure web3
-  const web3 = new Web3('https://bsc-dataseed1.binance.org:443');
-  const account = web3.eth.accounts.privateKeyToAccount(process.env.PRIVATE_KEY);
-  web3.eth.accounts.wallet.add(account);
-
-  const sdk = new AllbridgeCoreSdk();
-
-  // fetch information about supported chains
-  const chains = await sdk.chainDetailsMap();
-
-  const bscChain = chains[ChainSymbol.BSC];
-  const busdTokenInfo = bscChain.tokens.find(tokenInfo => tokenInfo.symbol === 'BUSD');
-
-  const trxChain = chains[ChainSymbol.TRX];
-  const usdtTokenInfo = trxChain.tokens.find(tokenInfo => tokenInfo.symbol === 'USDT');
-
-  // authorize a transfer of tokens from sender's address
-  await sdk.approve(web3, {
-    tokenAddress: busdTokenInfo.tokenAddress,
-    owner: fromAddress,
-    spender: busdTokenInfo.poolAddress,
+export default function ChainStatus() {
+  // used React-Query to fetch Covalent API
+  const { data, error, isFetching } = useQuery(["chainStatus"], async () => {
+    const res = await fetch(
+      `https://api.covalenthq.com/v1/chains/status/?key=${APIKey}`
+    );
+    return res.json();
   });
 
-  // initiate transfer
-  const response = await sdk.send(web3, {
-    amount: "1.01",
-    fromAccountAddress: fromAddress,
-    toAccountAddress: toAddress,
-    sourceChainToken: busdTokenInfo,
-    destinationChainToken: usdtTokenInfo,
-    messenger: Messenger.ALLBRIDGE,
-  });
-  console.log("Tokens sent:", response.txId);
+  const chainStatus = data?.data?.items[25].synced_block_height;
+  const blockedSignedAt = data?.data?.items[25].synced_blocked_signed_at;
 }
 
-runExample();
-```
 
-***TIP:***
-For more details, see [***Examples***](https://github.com/allbridge-io/allbridge-core-js-sdk/tree/main/examples)
-
-## Other operations
-
-### Transaction builder
-
-#### Approve Transaction
-
-SDK method `rawTransactionBuilder.approve` can be used to create approve Transaction.
-
-```js
-const rawTransactionApprove = await sdk.rawTransactionBuilder.approve(web3, approveData);
-```
-
-**TIP:** To interact with the **Tron** blockchain: </br>
-use ```tronWeb``` instead of ```web3```
-
-#### Send Transaction
-
-SDK method `rawTransactionBuilder.send` can be used to create send Transaction.
-
-```js
-const rawTransactionSend = await sdk.rawTransactionBuilder.send(sendParams, web3);
-```
-
-**TIP:** </br>
-To interact with the **Tron** blockchain: </br>
-use ```tronWeb``` instead of ```web3``` </p>
-
-##### Solana Blockchain
-
-To create send transaction on **Solana** blockchain: </br>
-
-```js
-const { transaction, signer } = await sdk.rawTransactionBuilder.send(sendParams);
-```
-
-***TIP:***
-For more details, see [***Example***](https://github.com/allbridge-io/allbridge-core-js-sdk/blob/main/examples/solana/sol-build-tx.js)
-
-### Get information about sent transaction
-
-SDK method `getTransferStatus` can be used to get information about tokens transfer.
-
-```js
-const transferStatus = await sdk.getTransferStatus(chainSymbol, txId);
 ```
 
 ### Calculating amount of tokens to be received after fee
