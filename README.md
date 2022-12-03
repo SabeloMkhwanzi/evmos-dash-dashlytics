@@ -38,22 +38,21 @@ Providing a visual analytics front-end with rich information about the health an
 - Backend [Covalent](https://www.covalenthq.com/) - One unified API, One billion possibilities, Covalent provides a unified API bringing visibility to billions of Web3 data points.
 - Hosting Platform: [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Table of Contents
-- [Installing](#installing)
-- [How to use](#how-to-use)
-  - [Get information about chain statuse and blocked Signeds](#Get-information-about-chain-statuse-and-blocked-Signed)
-  - [Get 30d volume and liquidity as a timeseries chart](#Get-30d-volume-and-liquidity-as-a-timeseries-chart)
-  - [Get Top tokens by price volume liquidity](#Get-Top-tokens-by-price-volume-liquidity)
-  - [Get Top pools by price volume liquidity](#Get-Top-pools-by-price-volume-liquidity)
-  - [Get transactions for account address](#Get-transactions-for-account-address)
-- [Thank you](#thank-you)
-
 ## Roadmap for the Project
 - [ ] Add more Dex protocol on Evmos mainnet
 - [ ] Add wallet portfolio page to display users assest
 - [ ] Add filter button on the chart to filter between 7 day - 30 days
 - [ ] As the Project scales with usage - contact [Covalent](https://www.covalenthq.com/) for updates to increase rate Limits
 - [ ] Fully mobile reponsive
+
+## Table of Contents
+- [Installing](#installing)
+- [How it Build](#how-it-Build)
+  - [Get information about chain statuse and blocked Signeds](#Get-information-about-chain-statuse-and-blocked-Signed)
+  - [Get 30d volume and liquidity as a timeseries chart](#Get-30d-volume-and-liquidity-as-a-timeseries-chart)
+  - [Get Top tokens by price volume liquidity](#Get-Top-tokens-by-price-volume-liquidity)
+  - [Get Top pools by price volume liquidity](#Get-Top-pools-by-price-volume-liquidity)
+  - [Get transactions for account address](#Get-transactions-for-account-address)
 
 ## Installing
 
