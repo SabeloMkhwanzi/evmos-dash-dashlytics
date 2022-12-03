@@ -41,12 +41,12 @@ Providing a visual analytics front-end with rich information about the health an
 ## Table of Contents
 - [Installing](#installing)
 - [How to use](#how-to-use)
-  - [1. Get information about chain statuse and blocked Signeds](#1.-Get-information-about-chain-statuse-and-blocked-Signed)
-  - [2. Get 30d volume and liquidity as a timeseries chart](#2.-Get-30d-volume-and-liquidity-as-a-timeseries-chart)
-  - [3. Get Top tokens by price, volume, liquidity](#3.-Get-Top-tokens-by-price,-volume,-liquidity)
-  - [4. Get Top pools by price, volume, liquidity](#4.-Get-Top-pools-by-price,-volume,-liquidity)
-  - [5. Get XY=K transactions for account address](#5.-Get-XY=K-transactions-for-account-address)
-- [Semver](#semver)
+  - [Get information about chain statuse and blocked Signeds](#Get-information-about-chain-statuse-and-blocked-Signed)
+  - [Get 30d volume and liquidity as a timeseries chart](#Get-30d-volume-and-liquidity-as-a-timeseries-chart)
+  - [Get Top tokens by price, volume, liquidity](#Get-Top-tokens-by-price,-volume,-liquidity)
+  - [Get Top pools by price, volume, liquidity](#Get-Top-pools-by-price,-volume,-liquidity)
+  - [Get XY=K transactions for account address](#Get-XY=K-transactions-for-account-address)
+- [Thank you](#thank-you)
 
 ## Installing
 
@@ -79,7 +79,7 @@ npm run dev
 
 ## How to use 
 
-### 1. Get information about chain statuse and blocked Signed
+### Get information about chain statuse and blocked Signed
 
 API method `GET/v1/chains/status/` can be used to get information about chain statuse and blocked Signed at.
  - note: `const chainStatus = data?.data?.items[25].synced_block_height` at `[25]` we the get the chain id of Evmos in array of objects 😊
@@ -108,7 +108,7 @@ export default function ChainStatus() {
 
 ```
 
-### 2. Get XY=K 30d volume and liquidity as a timeseries chart
+### Get XY=K 30d volume and liquidity as a timeseries chart
 
 API XY=K method `/v1/9001/xy=k/cronus/ecosystem/?&key=${APIKey}`can be used to get information on volume 7-30d & liquidity 7-30d
 - notes: we simply by providing the name of the exchange `/cronus/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, cool hey 😊
@@ -147,7 +147,7 @@ export default function CronusOverview() {
   }
 ```
 
-### 3. Get XY=K Top tokens by price, volume, liquidity
+### Get XY=K Top tokens by price, volume, liquidity
 
 API XY=K method `/9001/xy=k/diffusion/tokens` can be used to get information on tokens by price, volume, liquidity, 
 - notes: we simply by providing the name of the exchange `/diffusion/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Amazing right😊
@@ -174,7 +174,7 @@ export default function CronusTokens() {
 }
 ```
 
-### 4. Get XY=K Top pools by price, volume, liquidity
+### Get XY=K Top pools by price, volume, liquidity
 
 API method `/9001/xy=k/evmoswap/pools` can be used to get information on tokens by price, volume, liquidity, 
 - notes: we simply by providing the name of the exchange `/evmoswap/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Super great!😊
@@ -202,7 +202,7 @@ export default function EvmoswapPools() {
 }
 ```
 
-### 5. Get XY=K transactions for account address
+### Get XY=K transactions for account address
 
 API XY=K method `/v1/9001/xy=k/evmoswap/tokens/address/0x181c262b973b22c307c646a67f64b76410d19b6b/transactions/` can be used to get transactions information on account address, also includes type of transactions eg. SWAP, ADD LIQUIDITY, REMOVE LIQUIDITY. 
 - notes: we simply by providing the name of the exchange `/evmoswap/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, and you will note that here we have account an address which represent evmoswap address - which will help us get all the transactions on this address. Lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Nice!😊
