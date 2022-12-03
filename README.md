@@ -17,15 +17,15 @@
 Providing a visual analytics front-end with rich information about the health and performance of Dex on Evmos ecosystem - Powered by Evmos x Covalent. 
 
 ### Intro
-- Web3 has changed the way we can interact with money by introducing Decentralized finance (DEFI). Decentralized finance provides users with a range of financial services similar to traditional financial industries such as banking, borrowing, insurance, and trading without the need to rely on centralized entities. (DEX) decentralized exchange is one of the popular financial services emerging on the web3 ecosystem, a DEX is an exchange where users trade directly from their own wallets, where you can pay money from one currency to buy money for another.  
+- Web3 has changed the way we can interact with money by introducing decentralized finance (DEFI). Decentralized finance provides users with a range of financial services similar to traditional financial industries such as banking, loaning, insurance, and trading without the need to rely on centralized entities. DEX (decentralized exchange) is one of the popular financial services emerging on the web3 ecosystem, a DEX is an exchange where users trade directly from their own wallets, where you can pay money from one currency to buy money for another.  
 
-- DEX uses Automated Market Makers (AMMs), that allows users to swap tokens on DEX, by paying money from one currency to buy money for another eg. using US dollars stable coin (USDC) to buy Ethereum tokens (ETH). AMMs are protocols for DEXs that help give you the price between these two assets when you swap tokens. AMMs usually rely on a mathematical formula to price assets. Currently, there are different formulas that AMMs use. However, the most fundamental and most well-known formula is the XY=K equation. XY=K is an equation you use for determining how much of one token, called X, is needed to swap for another token, called Y, in any DEX.
+- DEX uses Automated Market Makers (AMMs), that allows users to swap tokens on DEX, by paying money from one currency to buy money for another eg. using US dollars stable coin (USDC) to buy Ethereum tokens (ETH). AMMs are protocols for DEXs that help give you the price between these two assets when you swap tokens. AMMs usually rely on a mathematical formula to price assets. Currently, there are different formulas that AMMs use however, the most fundamental and most well-known formula is the XY=K equation. XY=K is an equation you use for determining how much of one token, called X, is needed to swap for another token, called Y, in any DEX.
 
 ### Project mission 
-- For any (DEX) decentralized exchange protocol runing on XY=K engine to be successful, it needs a visual analytics front-end dashboard to provide users with rich information about the health and performance of that ecosystem. Emvos is a fast growing ecosystem with (DEX) decentralized exchange built on the ecosystem, thus we approach to solve the problem by providing  [EddAlytics](https://eddalytics.vercel.app/) - Evmos Dex Dashboard Analytics.
+- For the success of a DEX protocol, running on an XY=K engine, a visual analytics front-end dashboard is needed to provide users with rich information about the health and performance of that ecosystem. Emvos is a fast growing ecosystem with a decentralized exchange built in the ecosystem, thus we approach to solve the problem by providing  [EddAlytics](https://eddalytics.vercel.app/) - Evmos Dex Dashboard Analytics.
 
 ### Project Solution 
-- Introducing [Covalent](https://www.covalenthq.com/), they built XY=K: the suite of Class B, generalized UniswapV2-like endpoints in their unified API for exchange on various blockchains. They introduced these endpoints to provide you with the richest and most robust on-chain DEX data and allow you to retrieve all the required data for any UniswapV2-like protocol (such as SpiritSwap and SushiSwap) on a variety of blockchains, simply by providing the name of the exchange and the correct chainID for the blockchain. As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes - Awesome right! 😊
+- Introducing [Covalent](https://www.covalenthq.com/), they built XY=K: the suite of Class B, generalized UniswapV2-like endpoints in their unified API for exchange on various blockchains. They introduced these endpoints to provide you with the richest and most robust on-chain DEX data and allow you to retrieve all the required data for any UniswapV2-like protocol such as SpiritSwap and SushiSwap on a variety of blockchains by simply providing the name of the exchange and the correct chainID for the blockchain. As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes - Awesome right! 😊
 
 ### Project Stack
 - Building Framework: [Nextjs](https://nextjs.org/) -Next.js is an open-source web development framework created by Vercel enabling React-based web applications with server-side rendering and generating static websites
@@ -39,7 +39,7 @@ Providing a visual analytics front-end with rich information about the health an
 - Hosting Platform: [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 ## Roadmap for the Project
-- [ ] Add more Dex protocol on Evmos mainnet
+- [ ] Add more DEX protocol on Evmos mainnet
 - [ ] Add wallet portfolio page to display users assest
 - [ ] Add filter button on the chart to filter between 7 day - 30 days
 - [ ] As the Project scales with usage - contact [Covalent](https://www.covalenthq.com/) for updates to increase rate Limits
@@ -116,8 +116,8 @@ export default function ChainStatus() {
 
 ### Get 30d volume and liquidity as a timeseries chart
 
-API XY=K method `/v1/9001/xy=k/cronus/ecosystem/?&key=${APIKey}`can be used to get information on volume 7-30d & liquidity 7-30d
-- notes: we simply by providing the name of the exchange `/cronus/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, cool hey 😊
+API XY=K method `/v1/9001/xy=k/cronus/ecosystem/?&key=${APIKey}`can be used to get information on volume 7-30 days & liquidity 7-30 days
+- notes: we simply provide the name of the exchange `/cronus/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain. Lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}` , as a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, cool hey 😊
 
 ```js
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
@@ -156,7 +156,7 @@ export default function CronusOverview() {
 ### Get Top tokens by price volume liquidity
 
 API XY=K method `/9001/xy=k/diffusion/tokens` can be used to get information on tokens by price, volume, liquidity, 
-- notes: we simply by providing the name of the exchange `/diffusion/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Amazing right😊
+- notes: we simply provide the name of the exchange `/diffusion/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain. Lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}` ,as a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Amazing right😊
 
 ```js
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
@@ -183,7 +183,7 @@ export default function CronusTokens() {
 ### Get Top pools by price volume liquidity
 
 API method `/9001/xy=k/evmoswap/pools` can be used to get information on tokens by price, volume, liquidity, 
-- notes: we simply by providing the name of the exchange `/evmoswap/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Super great!😊
+- notes: we simply provide the name of the exchange `/evmoswap/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain. Lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}` ,as a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Super great!😊
 
 ```js
 const APIKey = process.env.NEXT_PUBLIC_COVALENTKEY;
@@ -210,9 +210,9 @@ export default function EvmoswapPools() {
 
 ### Get transactions for account address
 
-API XY=K method `/v1/9001/xy=k/evmoswap/tokens/address/0x181c262b973b22c307c646a67f64b76410d19b6b/transactions/` can be used to get transactions information on account address, also includes type of transactions eg. SWAP, ADD LIQUIDITY, REMOVE LIQUIDITY. 
-- notes: we simply by providing the name of the exchange `/evmoswap/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, and you will note that here we have account an address which represent evmoswap address - which will help us get all the transactions on this address. Lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}`  As a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Nice!😊
-- Development TIP! 💁‍♂️: when mapping through the data it comes in a decending list of array from old to new (old information on top of list and new information on the bottom), suggest you Use map() on an Array in Reverse Order in JS :
+API XY=K method `/v1/9001/xy=k/evmoswap/tokens/address/0x181c262b973b22c307c646a67f64b76410d19b6b/transactions/` can be used to get transactions information on account address, which also includes these type of transactions eg. SWAP, ADD LIQUIDITY, REMOVE LIQUIDITY. 
+- notes: we simply provide the name of the exchange `/evmoswap/` and the correct chainID (9001 = Evmos_mainnet) `/9001/` for the blockchain, and you will note that here we have account, an address, which represents evmoswap address - which will help us get all the transactions on this address. Lastly your Api key from [Covalent](https://www.covalenthq.com/) you provided on .env.local as a variables `/?&key=${APIKey}` ,as a result, these endpoints enable you to access any DEX-related protocol in a matter of minutes, Nice!😊
+- Development TIP! 💁‍♂️: when mapping through the data it comes in a decending list of array from old to new (old information on top of list and new information on the bottom), suggest you Use `map()` on an Array in Reverse Order in JS :
 ```js
 const arr = ['a', 'b', 'c'];
 
