@@ -52,7 +52,7 @@ Providing a visual analytics front-end with rich information about the health an
 - [ ] Add more Dex protocol on Evmos mainnet
 - [ ] Add wallet portfolio page to display users assest
 - [ ] Add filter button on the chart to filter between 7 day - 30 days
-- [ ] As the Project scles with usage and more attract - contact [Covalent](https://www.covalenthq.com/) for updates to increase rate Limits
+- [ ] As the Project scales with usage - contact [Covalent](https://www.covalenthq.com/) for updates to increase rate Limits
 - [ ] Fully mobile reponsive
 
 ## Installing
