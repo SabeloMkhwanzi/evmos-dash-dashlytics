@@ -263,7 +263,7 @@ export default function EvmoswapTransactions() {
 
 #### GitHub Repository: https://github.com/SabeloMkhwanzi/eddalytics
 
-#### Demo video: []()
+#### Demo video: [video](https://youtu.be/2uNcdUntzZA)
 
 #### Project Start: Date: Nov 07, 2022 - Dec 4, 2022
 
