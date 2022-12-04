@@ -44,6 +44,7 @@ Providing a visual analytics front-end with rich information about the health an
 - [ ] Add filter button on the chart to filter between 7 day - 30 days
 - [ ] As the Project scales with usage - contact [Covalent](https://www.covalenthq.com/) for updates to increase rate Limits
 - [ ] Fully mobile reponsive
+- [ ] Adding more customizable components   
 
 ## Table of Contents
 - [Installing](#installing)
