@@ -38,6 +38,13 @@ Providing a visual analytics front-end with rich information about the health an
 - Backend [Covalent](https://www.covalenthq.com/) - One unified API, One billion possibilities, Covalent provides a unified API bringing visibility to billions of Web3 data points.
 - Hosting Platform: [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
+##### Diffusion HomePage
+![Diffusion HomePage](https://github.com/SabeloMkhwanzi/eddalytics/blob/main/public/Diffusion%20Dex%20hp%202022-12-03%20.jpg)
+
+##### Diffusion Analytics
+![Diffusion Analytics](https://github.com/SabeloMkhwanzi/eddalytics/blob/main/public/Diffusion%20Dex%20%202022-12-03%20.jpg)
+
+
 ## Roadmap for the Project
 - [ ] Add more DEX protocol on Evmos mainnet
 - [ ] Add wallet portfolio page to display users assest
@@ -253,12 +260,6 @@ export default function EvmoswapTransactions() {
      
 }
 ```
-
-##### Diffusion HomePage
-![Diffusion HomePage](https://github.com/SabeloMkhwanzi/eddalytics/blob/main/public/Diffusion%20Dex%20hp%202022-12-03%20.jpg)
-
-##### Diffusion Analytics
-![Diffusion Analytics](https://github.com/SabeloMkhwanzi/eddalytics/blob/main/public/Diffusion%20Dex%20%202022-12-03%20.jpg)
 
 #### GitHub Repository: https://github.com/SabeloMkhwanzi/eddalytics
 
