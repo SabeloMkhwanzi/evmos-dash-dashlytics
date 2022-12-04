@@ -150,17 +150,20 @@ export default function DiffusionStatsOverview({ data }) {
 
                   <ThemeIcon
                     color="gray"
-                    variant="light"
+                    variant="subtle"
                     sx={(theme) => ({
                       color:
                         numbro(
-                          data.market_data.market_cap_change_percentage_24h
-                        ).format({ thousandSeparated: true, mantissa: 1 }) > 0
+                          data.market_data
+                            .price_change_percentage_24h_in_currency.usd
+                        ).format({
+                          thousandSeparated: true,
+                          mantissa: 2,
+                        }) > 0
                           ? theme.colors.teal[6]
                           : theme.colors.red[6],
                     })}
                     size={38}
-                    radius="md"
                   >
                     <DiffIcon size={28} stroke={1.5} />
                   </ThemeIcon>
