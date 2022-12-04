@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { AppShell } from "@mantine/core";
 import {
-  DragNdrop,
+  StatsDaggableLayer,
   Footer,
   HeaderNavbar,
   SideNavbarCustomizableDashboard,
@@ -10,7 +10,7 @@ import {
 export default function Home() {
   return (
     <>
-     <Head>
+      <Head>
         <title>Customizable Dashboard - EddAlytics</title>
         <meta name="description" content="Emvos Dex Dashboard Analytics" />
         <link rel="icon" href="/favicon.ico" />
@@ -29,7 +29,7 @@ export default function Home() {
           },
         })}
       >
-        <DragNdrop />
+        <StatsDaggableLayer />
       </AppShell>
     </>
   );

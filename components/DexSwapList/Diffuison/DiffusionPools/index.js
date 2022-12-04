@@ -21,10 +21,7 @@ export default function DiffusionPools() {
 
   const items = data?.data?.items;
 
-  if (isFetching)
-    return (
-    <LoaderComp />
-    );
+  if (isFetching) return <LoaderComp />;
 
   if (error)
     return (

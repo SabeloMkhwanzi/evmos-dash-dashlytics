@@ -56,4 +56,5 @@ export { default as EvmoswapTokenTable } from "./DexSwapList/Evmoswap/EvmoswapTo
 export { default as EvmoswapTokens } from "./DexSwapList/Evmoswap/EvmoswapTokens";
 export { default as EvmoswapTokensOverviewTable } from "./DexSwapList/Evmoswap/EvmoswapTokens/EvmoswapTokensOverview/EvmoswapTokensOverviewTable";
 export { default as SideNavbarCustomizableDashboard } from "./SideNavbarCustomizableDashboard";
-export { default as DragNdrop } from "./DragNdrop";
+export { default as StatsDaggableLayer } from "./StatsDaggableLayer";
+export { default as DiffusionCharts } from "./DexSwapList/Diffuison/DiffusionCharts";

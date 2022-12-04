@@ -7,21 +7,7 @@ import {
   Stack,
   Button,
 } from "@mantine/core";
-import {
-  TablerIcon,
-  IconHome2,
-  IconPool,
-  IconGauge,
-  IconDeviceDesktopAnalytics,
-  IconChartInfographic,
-  IconChartDots,
-  IconChartBar,
-  IconBook2,
-  IconArrowsTransferUp,
-  IconTemplate,
-  IconLogout,
-  IconSwitchHorizontal,
-} from "@tabler/icons";
+import { IconHome2, IconLogout, IconSwitchHorizontal } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   link: {
