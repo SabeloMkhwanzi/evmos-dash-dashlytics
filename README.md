@@ -253,7 +253,10 @@ export default function EvmoswapTransactions() {
      
 }
 ```
-![HomePage]()
+
+![Evmos HomePage](https://github.com/SabeloMkhwanzi/eddalytics/blob/main/public/EddAlytic%20Homepage.jpg)
+
+![Diffusion Analytics](https://github.com/SabeloMkhwanzi/eddalytics/blob/main/public/EddAlytic%20Homepage.jpg)
 
 #### GitHub Repository: https://github.com/SabeloMkhwanzi/eddalytics
 
