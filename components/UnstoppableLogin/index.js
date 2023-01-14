@@ -13,7 +13,7 @@ import LoaderComp from "../LoaderComp";
 
 const uauth = new UAuth({
   clientID: process.env.NEXT_PUBLIC_UNSTOPPABLEDOMAIN_CLIENT_ID,
-  redirectUri: "http://localhost:3000",
+  redirectUri: "https://www.eddalytics.xyz/",
   scope: "openid wallet ",
 });
 
