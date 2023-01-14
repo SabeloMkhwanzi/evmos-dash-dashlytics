@@ -40,7 +40,7 @@ Providing a visual analytics front-end with rich information about the health an
 - Hosting Platform: [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 ##### Diffusion HomePage
-![Diffusion HomePage](https://github.com/SabeloMkhwanzi/eddalytics/blob/main/public/Diffusion%20Dex%20hp%202022-12-03%20.jpg)
+![Diffusion HomePage](https://github.com/SabeloMkhwanzi/eddalytics/blob/main/public/Addlytics%20update1.png)
 
 ##### Diffusion Analytics
 ![Diffusion Analytics](https://github.com/SabeloMkhwanzi/eddalytics/blob/main/public/Diffusion%20Dex%20%202022-12-03%20.jpg)
