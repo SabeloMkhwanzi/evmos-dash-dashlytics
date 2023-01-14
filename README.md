@@ -36,6 +36,7 @@ Providing a visual analytics front-end with rich information about the health an
 - [Recharts](https://recharts.org/en-US/) - A composable charting library built on React components
 
 - Backend [Covalent](https://www.covalenthq.com/) - One unified API, One billion possibilities, Covalent provides a unified API bringing visibility to billions of Web3 data points.
+- Unstoppable domain to login users: [Unstoppable domain](https://docs.unstoppabledomains.com/) - Login with Unstoppable build a universal Web3 login that authenticates your users.
 - Hosting Platform: [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 ##### Diffusion HomePage
@@ -82,6 +83,7 @@ Create a .env.local file in the root folder and populate it with the following v
 
 ```bash
 NEXT_PUBLIC_COVALENTKEY=
+NEXT_PUBLIC_UNSTOPPABLEDOMAIN_CLIENT_ID=
 ```
 
 
