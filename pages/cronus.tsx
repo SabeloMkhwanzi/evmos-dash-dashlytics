@@ -1,6 +1,12 @@
 import Head from "next/head";
 import { AppShell } from "@mantine/core";
-import { Cronus, Footer, HeaderNavbar, SideNavbarHome } from "../components";
+import {
+  Cronus,
+  Footer,
+  HeaderNavbar,
+  SideNavbarHome,
+  UnstoppableLogin,
+} from "../components";
 import SideNavbarCronus from "../components/SideNavbarCronus";
 
 export default function CronusPage() {
@@ -25,6 +31,7 @@ export default function CronusPage() {
           },
         })}
       >
+        <UnstoppableLogin />
         <Cronus />
       </AppShell>
     </>

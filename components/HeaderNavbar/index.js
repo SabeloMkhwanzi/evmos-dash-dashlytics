@@ -103,62 +103,56 @@ export default function HeaderNavbar() {
               spacing={5}
               className={classes.hiddenMobile}
             >
-              <Button
-                href="diffusion"
-                component="a"
-                variant="subtle"
-                color="white"
-                radius="md"
-                h={50}
+              <Link
+                href="/diffusion"
+                style={{ color: "inherit", textDecoration: "inherit" }}
               >
-                <Avatar
-                  variant="outline"
-                  radius="xl"
-                  mx={3}
-                  color="white"
-                  alt="diffusion"
-                  src="https://assets.coingecko.com/coins/images/25331/small/photo5451952870917257644.jpg?1651826321"
-                />
-                Diffusion
-              </Button>
-              <Button
-                href="cronus"
-                component="a"
-                variant="subtle"
-                color="white"
-                radius="md"
-                h={50}
+                <Button variant="subtle" color="white" radius="md" h={50}>
+                  <Avatar
+                    variant="outline"
+                    radius="xl"
+                    mx={3}
+                    color="white"
+                    alt="diffusion"
+                    src="https://assets.coingecko.com/coins/images/25331/small/photo5451952870917257644.jpg?1651826321"
+                  />
+                  Diffusion
+                </Button>
+              </Link>
+              <Link
+                href="/cronus"
+                style={{ color: "inherit", textDecoration: "inherit" }}
               >
-                <Avatar
-                  variant="outline"
-                  radius="xl"
-                  mx={3}
-                  color="white"
-                  alt="diffusion"
-                  src="https://assets.coingecko.com/coins/images/24022/small/h8GHzr2W_400x400.jpg?1646096205"
-                />
-                Cronus Finance
-              </Button>
-              <Button
-                href="evmoswap"
-                component="a"
-                variant="subtle"
-                color="white"
-                radius="md"
-                h={50}
+                <Button variant="subtle" color="white" radius="md" h={50}>
+                  <Avatar
+                    variant="outline"
+                    radius="xl"
+                    mx={3}
+                    color="white"
+                    alt="diffusion"
+                    src="https://assets.coingecko.com/coins/images/24022/small/h8GHzr2W_400x400.jpg?1646096205"
+                  />
+                  Cronus Finance
+                </Button>
+              </Link>
+              <Link
+                href="/evmoswap"
+                style={{ color: "inherit", textDecoration: "inherit" }}
               >
-                <Avatar
-                  variant="outline"
-                  radius="xl"
-                  mx={3}
-                  color="white"
-                  alt="diffusion"
-                  src="https://assets.coingecko.com/coins/images/25800/small/logox200.png?1653970616"
-                />
-                EvmoSwap
-              </Button>
+                <Button variant="subtle" color="white" radius="md" h={50}>
+                  <Avatar
+                    variant="outline"
+                    radius="xl"
+                    mx={3}
+                    color="white"
+                    alt="diffusion"
+                    src="https://assets.coingecko.com/coins/images/25800/small/logox200.png?1653970616"
+                  />
+                  EvmoSwap
+                </Button>
+              </Link>
             </Group>
-             <Logo />
+            <Logo />
             <Group className={classes.hiddenMobile}>
               <ChainStatus />
               <ColorModeButton />
@@ -190,9 +184,9 @@ export default function HeaderNavbar() {
             <Link component="a" href="/" className={classes.link}>
               Home
             </Link>
-                <Link component="a" href="/diffusion" className={classes.link} >
-                  Diffusion
-                </Link>
+            <Link component="a" href="/diffusion" className={classes.link}>
+              Diffusion
+            </Link>
             <Link href="/cronus" className={classes.link}>
               Cronus Finance
             </Link>
@@ -207,7 +201,6 @@ export default function HeaderNavbar() {
 
             <Group position="center" grow pb="xl" px="md">
               <ColorModeButton />
-             
             </Group>
           </ScrollArea>
         </Drawer>

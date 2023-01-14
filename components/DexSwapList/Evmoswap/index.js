@@ -19,23 +19,29 @@ export default function EvmoswapOverview() {
   // used React-Query to fetch Covalent API
   const { data, error, isFetching } = useQuery(["evmoswapEco"], async () => {
     const res = await fetch(
-      `https://api.covalenthq.com/v1/9001/xy=k/evmoswap/ecosystem/?&key=${APIKey}`
+      "https://api.coingecko.com/api/v3/coins/evmoswap/market_chart?vs_currency=usd&days=183&interval=daily"
     );
     return res.json();
   });
-  //console.log(data?.data?.items);
+
+  //console.log(data);
 
   // Chart data for Evmos market_caps
-  const EvmoswapLiquidity = data?.data?.items[0].liquidity_chart_30d.map(
-    (item) => ({
-      X: moment(item.dt).format("MMM Do"),
-      Y: item.liquidity_quote,
-    })
-  );
+  const marketCap = data?.market_caps.map((item) => ({
+    x: moment(item[0]).format("MMM Do"),
+    MarketCap: item[1],
+  }));
 
-  const EvmoswapVolume = data?.data?.items[0].volume_chart_30d.map((item) => ({
-    X: moment(item.dt).format("MMM Do"),
-    Y: item.volume_quote,
+  // Chart data for Evmos Total Volumes ==> not applied
+  // const totalVolumes = data?.total_volumes.map((item) => ({
+  //   x: moment(item[0]).format("MMM Do"),
+  //   Volumes: item[1],
+  // }));
+
+  // Chart data for Evmos price
+  const prices = data?.prices.map((item) => ({
+    x: moment(item[0]).format("MMM Do"),
+    Price: item[1],
   }));
 
   if (isFetching) return <LoaderComp />;
@@ -64,8 +70,8 @@ export default function EvmoswapOverview() {
       </Text>
       <Flex justifyContent="space-evenly">
         <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-          <EvmoswapVolumeChart EvmoswapVolume={EvmoswapVolume} />
-          <EvmoswapLiquidityChart EvmoswapLiquidity={EvmoswapLiquidity} />
+          <EvmoswapVolumeChart prices={prices} />
+          <EvmoswapLiquidityChart marketCap={marketCap} />
         </SimpleGrid>
       </Flex>
       <EvmoswapStats />

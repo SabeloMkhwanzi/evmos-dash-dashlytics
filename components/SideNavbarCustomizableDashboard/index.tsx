@@ -8,6 +8,7 @@ import {
   Button,
 } from "@mantine/core";
 import { IconHome2, IconLogout, IconSwitchHorizontal } from "@tabler/icons";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -52,14 +53,17 @@ export default function SideNavbarCustomizableDashboard() {
         <Navbar.Section grow mt={5}>
           <Stack justify="center" spacing={10} my="auto">
             <Tooltip label="Home" position="right" transitionDuration={0}>
-              <Button
-                component="a"
-                href="/"
-                color="gray"
-                className={cx(classes.link, { [classes.active]: active })}
+              <Link
+                href="/evmos"
+                style={{ color: "inherit", textDecoration: "inherit" }}
               >
-                <IconHome2 />
-              </Button>
+                <Button
+                  color="gray"
+                  className={cx(classes.link, { [classes.active]: active })}
+                >
+                  <IconHome2 />
+                </Button>
+              </Link>
             </Tooltip>
           </Stack>
         </Navbar.Section>

@@ -8,17 +8,17 @@ import {
   Button,
 } from "@mantine/core";
 import {
-  TablerIcon,
   IconHome2,
   IconDeviceDesktopAnalytics,
   IconPool,
   IconCoin,
   IconExchange,
-  IconWallet,
   IconLogout,
   IconSwitchHorizontal,
   IconTemplate,
 } from "@tabler/icons";
+
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -63,44 +63,56 @@ export default function SideNavbarDiffusion() {
         <Navbar.Section grow mt={5}>
           <Stack justify="center" spacing={10} my="auto">
             <Tooltip label="Home" position="right" transitionDuration={0}>
-              <Button
-                component="a"
-                href="/"
-                color="gray"
-                className={cx(classes.link, { [classes.active]: active })}
+              <Link
+                href="/evmos"
+                style={{ color: "inherit", textDecoration: "inherit" }}
               >
-                <IconHome2 />
-              </Button>
+                <Button
+                  color="gray"
+                  className={cx(classes.link, { [classes.active]: active })}
+                >
+                  <IconHome2 />
+                </Button>
+              </Link>
             </Tooltip>
 
             <Tooltip label="Analytics" position="right" transitionDuration={0}>
-              <Button
-                component="a"
+              <Link
                 href="/diffusion"
-                className={cx(classes.link, { [classes.active]: active })}
+                style={{ color: "inherit", textDecoration: "inherit" }}
               >
-                <IconDeviceDesktopAnalytics />
-              </Button>
+                <Button
+                  className={cx(classes.link, { [classes.active]: active })}
+                >
+                  <IconDeviceDesktopAnalytics />
+                </Button>
+              </Link>
             </Tooltip>
 
             <Tooltip label="Pairs" position="right" transitionDuration={0}>
-              <Button
-                component="a"
+              <Link
                 href="/diffusionPoolsOverview"
-                className={cx(classes.link, { [classes.active]: active })}
+                style={{ color: "inherit", textDecoration: "inherit" }}
               >
-                <IconPool />
-              </Button>
+                <Button
+                  className={cx(classes.link, { [classes.active]: active })}
+                >
+                  <IconPool />
+                </Button>
+              </Link>
             </Tooltip>
 
             <Tooltip label="Tokens" position="right" transitionDuration={0}>
-              <Button
-                component="a"
+              <Link
                 href="diffusionTokensOverview"
-                className={cx(classes.link, { [classes.active]: active })}
+                style={{ color: "inherit", textDecoration: "inherit" }}
               >
-                <IconCoin />
-              </Button>
+                <Button
+                  className={cx(classes.link, { [classes.active]: active })}
+                >
+                  <IconCoin />
+                </Button>
+              </Link>
             </Tooltip>
 
             <Tooltip
@@ -122,13 +134,16 @@ export default function SideNavbarDiffusion() {
               position="right"
               transitionDuration={0}
             >
-              <Button
-                component="a"
+              <Link
                 href="/customizableDashboard"
-                className={cx(classes.link, { [classes.active]: active })}
+                style={{ color: "inherit", textDecoration: "inherit" }}
               >
-                <IconTemplate />
-              </Button>
+                <Button
+                  className={cx(classes.link, { [classes.active]: active })}
+                >
+                  <IconTemplate />
+                </Button>
+              </Link>
             </Tooltip>
           </Stack>
         </Navbar.Section>

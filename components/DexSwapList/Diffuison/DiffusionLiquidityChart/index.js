@@ -42,7 +42,7 @@ const useStyles = createStyles((theme) => ({
     extalign: "center",
   },
 }));
-export default function DiffusionLiquidityChart({ DiffusionLiquidity }) {
+export default function DiffusionLiquidityChart({ marketCap }) {
   const { classes } = useStyles();
   var numbro = require("numbro");
 
@@ -58,7 +58,7 @@ export default function DiffusionLiquidityChart({ DiffusionLiquidity }) {
           className={classes.Paper}
         >
           <Flex justify="center" align="center" direction="row">
-            <Text fw="bold">Liquidity Chart</Text>
+            <Text fw="bold">Market Cap Chart </Text>
           </Flex>
           <Flex
             mih={30}
@@ -68,18 +68,18 @@ export default function DiffusionLiquidityChart({ DiffusionLiquidity }) {
             direction="row"
           >
             <Button variant="default" compact>
-              30D
+              6M
             </Button>
           </Flex>
           <ResponsiveContainer width="100%" height={250}>
-            <BarChart data={DiffusionLiquidity}>
+            <BarChart data={marketCap}>
               <defs>
                 <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#2451B7" stopOpacity={0.4} />
                   <stop offset="75%" stopColor="#2451B7" stopOpacity={0.05} />
                 </linearGradient>
               </defs>
-              <Bar dataKey="Y" stroke="#2451B7" fill="url(#color)" />
+              <Bar dataKey="MarketCap" stroke="#2451B7" fill="url(#color)" />
               <XAxis axisLine={false} tickLine={false} dataKey="X" />
               <YAxis
                 axisLine={false}

@@ -43,7 +43,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function EvmoswapVolumeChart({ EvmoswapVolume }) {
+export default function EvmoswapVolumeChart({ prices }) {
   const { classes } = useStyles();
   var numbro = require("numbro");
 
@@ -59,7 +59,7 @@ export default function EvmoswapVolumeChart({ EvmoswapVolume }) {
           className={classes.Paper}
         >
           <Flex justify="center" align="center" direction="row">
-            <Text fw="bold">Volume Chart</Text>
+            <Text fw="bold">Price Chart</Text>
           </Flex>
           <Flex
             mih={30}
@@ -69,18 +69,18 @@ export default function EvmoswapVolumeChart({ EvmoswapVolume }) {
             direction="row"
           >
             <Button variant="default" compact>
-              30D
+              6M
             </Button>
           </Flex>
           <ResponsiveContainer width="100%" height={250}>
-            <AreaChart data={EvmoswapVolume}>
+            <AreaChart data={prices}>
               <defs>
                 <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#4C6793" stopOpacity={0.4} />
                   <stop offset="75%" stopColor="#4C6793" stopOpacity={0.05} />
                 </linearGradient>
               </defs>
-              <Area dataKey="Y" stroke="#4C6793" fill="url(#color)" />
+              <Area dataKey="Price" stroke="#4C6793" fill="url(#color)" />
               <XAxis axisLine={false} tickLine={false} dataKey="X" />
               <YAxis
                 axisLine={false}

@@ -1,10 +1,13 @@
+import React from "react";
 import Head from "next/head";
 import { AppShell } from "@mantine/core";
+
 import {
   EmvosOverview,
   Footer,
   HeaderNavbar,
   SideNavbarHome,
+  UnstoppableLogin,
 } from "../components";
 
 export default function Home() {
@@ -15,7 +18,6 @@ export default function Home() {
         <meta name="description" content="Emvos Dex Dashboard Analytics" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <AppShell
         navbar={<SideNavbarHome />}
         header={<HeaderNavbar />}
@@ -29,9 +31,8 @@ export default function Home() {
           },
         })}
       >
+        <UnstoppableLogin />
         <EmvosOverview />
-
-        {/* <Cronus /> */}
       </AppShell>
     </>
   );

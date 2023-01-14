@@ -22,6 +22,7 @@ import {
   IconLogout,
   IconSwitchHorizontal,
 } from "@tabler/icons";
+import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -96,18 +97,21 @@ export default function SideNavbarHome() {
                 <IconBook2 />
               </Button>
             </Tooltip>
-                 <Tooltip
+            <Tooltip
               label="Customizable Dashboard"
               position="right"
               transitionDuration={0}
             >
-              <Button
-                component="a"
+              <Link
                 href="/customizableDashboard"
-                className={cx(classes.link, { [classes.active]: active })}
+                style={{ color: "inherit", textDecoration: "inherit" }}
               >
-                <IconTemplate />
-              </Button>
+                <Button
+                  className={cx(classes.link, { [classes.active]: active })}
+                >
+                  <IconTemplate />
+                </Button>
+              </Link>
             </Tooltip>
           </Stack>
         </Navbar.Section>

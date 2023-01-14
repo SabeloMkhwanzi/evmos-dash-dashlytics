@@ -85,8 +85,8 @@ export default function DiffusionTransactionsTable({ data }) {
     style: "currency",
     currency: "USD",
   });
- 
- console.log(data);
+
+  //console.log(data);
   const rows = data
     .slice(0)
     .reverse()

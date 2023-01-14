@@ -25,7 +25,10 @@
     "components/DexSwapList/Diffuison/Overview/index.js",
     "components/DexSwapList/Diffuison/Overview/index.js",
     "components/index.js",
-    "components/EmvosOverview/index.js"
+    "components/EmvosOverview/index.js",
+    "components/UnstoppableLogin/index.js",
+    "components/WelocmePage/index.js",
+    "pages/index.js"
   ],
   "exclude": ["node_modules"]
 }

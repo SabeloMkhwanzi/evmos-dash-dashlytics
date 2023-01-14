@@ -1,6 +1,11 @@
 import Head from "next/head";
 import { AppShell } from "@mantine/core";
-import { Diffuison, Footer, HeaderNavbar } from "../components";
+import {
+  Diffuison,
+  Footer,
+  HeaderNavbar,
+  UnstoppableLogin,
+} from "../components";
 import SideNavbarDiffusion from "../components/SideNavbarDiffusion";
 
 export default function Diffusion() {
@@ -25,6 +30,7 @@ export default function Diffusion() {
           },
         })}
       >
+        <UnstoppableLogin />
         <Diffuison />
       </AppShell>
     </>

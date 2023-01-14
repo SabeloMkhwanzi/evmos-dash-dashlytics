@@ -67,7 +67,6 @@ export default function EmvosOverview() {
       <Flex justifyContent="space-evenly">
         <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
           <PriceChart prices={prices} />
-
           <MarketcapChart marketCap={marketCap} />
         </SimpleGrid>
       </Flex>

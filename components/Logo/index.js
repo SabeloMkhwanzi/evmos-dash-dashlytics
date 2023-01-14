@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Logo() {
   return (
     <>
-      <Link href="/">
+      <Link href="/evmos">
         <Image
           pb={2}
           src="/eddalytics-logo11.png"

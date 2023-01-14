@@ -1,5 +1,5 @@
 import React from "react";
-import {  Center, Notification, Text, SimpleGrid } from "@mantine/core";
+import { Center, Notification, Text, SimpleGrid } from "@mantine/core";
 import { Flex } from "@chakra-ui/react";
 import { IconX } from "@tabler/icons";
 import { useQuery } from "react-query";
@@ -19,28 +19,32 @@ export default function DiffusionOverview() {
   // used React-Query to fetch Covalent API
   const { data, error, isFetching } = useQuery(["diffusionEco"], async () => {
     const res = await fetch(
-      `https://api.covalenthq.com/v1/9001/xy=k/diffusion/ecosystem/?&key=${APIKey}`
+      "https://api.coingecko.com/api/v3/coins/diffusion/market_chart?vs_currency=usd&days=183&interval=daily"
     );
     return res.json();
   });
 
-  // Chart data for Evmos market_caps
-  const DiffusionLiquidity = data?.data?.items[0].liquidity_chart_30d.map(
-    (item) => ({
-      X: moment(item.dt).format("MMM Do"),
-      Y: item.liquidity_quote,
-    })
-  );
+  // console.log(data);
 
-  const DiffusionVolume = data?.data?.items[0].volume_chart_30d.map((item) => ({
-    X: moment(item.dt).format("MMM Do"),
-    Y: item.volume_quote,
+  // Chart data for Evmos market_caps
+  const marketCap = data?.market_caps.map((item) => ({
+    x: moment(item[0]).format("MMM Do"),
+    MarketCap: item[1],
   }));
 
-  if (isFetching)
-    return (
-    <LoaderComp />
-    );
+  // Chart data for Evmos Total Volumes ==> not applied
+  // const totalVolumes = data?.total_volumes.map((item) => ({
+  //   x: moment(item[0]).format("MMM Do"),
+  //   Volumes: item[1],
+  // }));
+
+  // Chart data for Evmos price
+  const prices = data?.prices.map((item) => ({
+    x: moment(item[0]).format("MMM Do"),
+    Price: item[1],
+  }));
+
+  if (isFetching) return <LoaderComp />;
 
   if (error)
     return (
@@ -66,8 +70,8 @@ export default function DiffusionOverview() {
       </Text>
       <Flex justifyContent="space-evenly">
         <SimpleGrid cols={2} breakpoints={[{ maxWidth: "sm", cols: 1 }]}>
-          <DiffusionVolumeChart DiffusionVolume={DiffusionVolume} />
-          <DiffuisonLiquidityChart DiffusionLiquidity={DiffusionLiquidity} />
+          <DiffusionVolumeChart prices={prices} />
+          <DiffuisonLiquidityChart marketCap={marketCap} />
         </SimpleGrid>
       </Flex>
       <DiffusionStats />

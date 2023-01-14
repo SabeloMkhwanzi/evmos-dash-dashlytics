@@ -43,7 +43,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function CronusVolumeChart({ CronusVolume }) {
+export default function CronusVolumeChart({ prices }) {
   const { classes } = useStyles();
   var numbro = require("numbro");
   return (
@@ -58,7 +58,7 @@ export default function CronusVolumeChart({ CronusVolume }) {
           className={classes.Paper}
         >
           <Flex justify="center" align="center" direction="row">
-            <Text fw="bold">Volume Chart</Text>
+            <Text fw="bold">Price Chart</Text>
           </Flex>
           <Flex
             mih={30}
@@ -68,18 +68,18 @@ export default function CronusVolumeChart({ CronusVolume }) {
             direction="row"
           >
             <Button variant="default" compact>
-              30D
+              6M
             </Button>
           </Flex>
           <ResponsiveContainer width="100%" height={250}>
-            <AreaChart data={CronusVolume}>
+            <AreaChart data={prices}>
               <defs>
                 <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#FF1E00" stopOpacity={0.4} />
                   <stop offset="75%" stopColor="#FF1E00" stopOpacity={0.05} />
                 </linearGradient>
               </defs>
-              <Area dataKey="Y" fill="url(#color)" stroke="#FF1E00" />
+              <Area dataKey="Price" fill="url(#color)" stroke="#FF1E00" />
               <XAxis axisLine={false} tickLine={false} dataKey="X" />
               <YAxis
                 axisLine={false}

@@ -43,7 +43,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-export default function DiffusionVolumeChart({ DiffusionVolume }) {
+export default function DiffusionVolumeChart({ prices }) {
   const { classes } = useStyles();
   var numbro = require("numbro");
   return (
@@ -58,7 +58,7 @@ export default function DiffusionVolumeChart({ DiffusionVolume }) {
           className={classes.Paper}
         >
           <Flex justify="center" align="center" direction="row">
-            <Text fw="bold">Volume Chart</Text>
+            <Text fw="bold">Price Chart</Text>
           </Flex>
           <Flex
             mih={30}
@@ -68,18 +68,18 @@ export default function DiffusionVolumeChart({ DiffusionVolume }) {
             direction="row"
           >
             <Button variant="default" compact>
-              30D
+              6M
             </Button>
           </Flex>
           <ResponsiveContainer width="100%" height={250}>
-            <AreaChart data={DiffusionVolume}>
+            <AreaChart data={prices}>
               <defs>
                 <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="#2451B7" stopOpacity={0.4} />
                   <stop offset="75%" stopColor="#2451B7" stopOpacity={0.05} />
                 </linearGradient>
               </defs>
-              <Area dataKey="Y" stroke="#2451B7" fill="url(#color)" />
+              <Area dataKey="Price" stroke="#2451B7" fill="url(#color)" />
               <XAxis axisLine={false} tickLine={false} dataKey="X" />
               <YAxis
                 axisLine={false}
